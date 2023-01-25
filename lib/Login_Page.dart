@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart'; 
 
 class LoginPage extends StatefulWidget {
   @override
@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (input) => !input!.contains('@') ? 'Please enter a valid email' : null,
                   onSaved: (input) => _email = input!,
                 ),
-                SizedBox(height: 20.0),
+                const SizedBox(height: 20.0),
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Password',
