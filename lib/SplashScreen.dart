@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'LoginPage.dart';
+
 // ignore: camel_case_types
-class _SplashScreenState {
+abstract class _SplashScreenState extends StatefulWidget {
+  @override
   _SplashScreenState createState() => _SplashscreenState();
-  
-  // ignore: non_constant_identifier_names
+
   _SplashscreenState() {}
 }
 
@@ -26,5 +28,26 @@ class _SplashScreenoneState extends State {
   }
 }
 
+class _SplashScreentwoState extends State {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LoginPage()),
+      );
+    });
+  }
+  
+ @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text('Splash Screen'),
+      ),
+    );
+  }
+}
 
 
