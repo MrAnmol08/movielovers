@@ -2,22 +2,33 @@ import 'package:flutter/material.dart';
 
 import 'LoginPage.dart';
 
-// ignore: camel_case_types
-abstract class _SplashScreenState extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashscreenState();
+class SplashScreenState extends State { // Create the state class for SplashScreen
+  @override// override the build method which returns the widget tree associated with SplashScreen
+  Widget build(BuildContext context) {
+    // TODO: implement build throws an error indicating that the build method is not yet 
+    throw UnimplementedError();
+  }
+  //...
+}
 
-  _SplashscreenState() {}
+//create the state class which is associated with SplashScreen StatefulWidget
+abstract class SplashScreenclassState extends StatefulWidget {
+  // override createState method
+  // which returns the newly created instance of _SplashScreenState class
+  @override
+  SplashScreenState createState() => _SplashScreenState();
+  
+  _SplashScreenState() {}
 }
 
 
-class _SplashScreenoneState extends State {
+class _SplashScreenoneState extends State { // Create the state class for _SplashScreenone
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    return Scaffold( // Scaffold widget provides a basic layout structure
+      body: Center(  // Center widget aligns the child widgets to the center of the 
         child: Container(
-          width: 200,
+          width: 200, // Container widget allows for more flexible layout options
           height: 200,
           child: FittedBox(
           child: Image.asset('assets/logo.png'),
