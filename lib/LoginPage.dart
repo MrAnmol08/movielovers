@@ -1,8 +1,13 @@
+// ignore_for_file: unused_field, deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; 
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
   @override
+  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
@@ -15,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Form(
             key: _formKey,
             child: Column(
@@ -36,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
-                style: GoogleFonts.khand(color: Color.fromARGB(255, 73, 69, 69)),
+                style: GoogleFonts.khand(color: const Color.fromARGB(255, 73, 69, 69)),
                   validator: (input) => !input!.contains('@') ? 'Please enter a valid email' : null,
                   onSaved: (input) => _email = input!,
                 ),
@@ -48,13 +53,13 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
-                  style: GoogleFonts.khand(color: Color.fromARGB(255, 73, 69, 69)),
+                  style: GoogleFonts.khand(color: const Color.fromARGB(255, 73, 69, 69)),
                   validator: (input) => input!.length < 8 ? 'Your password needs to be at least 8 characters' : null,
                   obscureText: true,
                   onSaved: (input) => _password = input!,
                 ),
                 const SizedBox(height: 20.0),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: RaisedButton(
                     onPressed: () {
@@ -63,18 +68,18 @@ class _LoginPageState extends State<LoginPage> {
                         // Perform login here
                       }
                     },
-                    child: Text('Login', style: GoogleFonts.khand(color: Color.fromARGB(255, 73, 69, 69)),),
+                    child: Text('Login', style: GoogleFonts.khand(color: const Color.fromARGB(255, 73, 69, 69)),),
                   ),
                 ),
                 const SizedBox(height: 10.0,),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: FlatButton(
                     onPressed: () {
                       // Navigate to forgot password page
                     },
                     child: Text('Forgot Password',
-                     style: GoogleFonts.khand(color: Color.fromARGB(255, 73, 69, 69)),),
+                     style: GoogleFonts.khand(color: const Color.fromARGB(255, 73, 69, 69)),),
                   ),
                 ),
               ],

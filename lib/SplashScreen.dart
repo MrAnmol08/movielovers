@@ -28,8 +28,8 @@ class _SplashScreenoneState extends State { // Create the state class for _Splas
     return Scaffold( // Scaffold widget provides a basic layout structure
       body: Center(  // Center widget aligns the child widgets to the center of the 
         child: Container(
-          width: 200, // Container widget allows for more flexible layout options
-          height: 200,
+          width: 170, // Container widget allows for more flexible layout options
+          height: 170,
           child: FittedBox(
           child: Image.asset('assets/logo.png'),
         ),
@@ -43,7 +43,7 @@ class _SplashScreentwoState extends State {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 15), () {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => LoginPage()),
