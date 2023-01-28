@@ -14,6 +14,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   late String _email, _password;
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +22,23 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20.0),
+          
           child: Form(
             key: _formKey,
             child: Column(
               children: <Widget>[
                 const SizedBox(height: 50.0),
-                const Text(
+                 
+                 const Text(
                   'Login',
+                  textAlign:TextAlign.center,
                   style: TextStyle(
                     fontSize: 30.0,
                     fontWeight: FontWeight.bold,
+                    
+                    
+                    
+                    
                   ),
                 ),
                 const SizedBox(height: 20.0),
@@ -62,6 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: double.infinity,
                   child: RaisedButton(
+                    color: Color.fromARGB(247, 241, 4, 4),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
