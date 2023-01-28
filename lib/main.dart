@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
-import 'LoginPage.dart';
+import 'package:movielovers/LoginPage.dart';
 import "SplashScreen.dart";
 import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(const SplashScreen());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'My App',
+      title: 'Movie Lovers',
       home: LoginPage(),
+      
+     
     );
   }
 }

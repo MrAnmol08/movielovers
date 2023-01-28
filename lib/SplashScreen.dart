@@ -5,6 +5,7 @@ import 'LoginPage.dart';
 class SplashScreenState extends State { // Create the state class for SplashScreen
   @override// override the build method which returns the widget tree associated with SplashScreen
   Widget build(BuildContext context) {
+    // ignore: todo
     // TODO: implement build throws an error indicating that the build method is not yet 
     throw UnimplementedError();
   }
@@ -13,11 +14,15 @@ class SplashScreenState extends State { // Create the state class for SplashScre
 
 //create the state class which is associated with SplashScreen StatefulWidget
 abstract class SplashScreenclassState extends StatefulWidget {
+  const SplashScreenclassState({Key? key}) : super(key: key);
+
   // override createState method
   // which returns the newly created instance of _SplashScreenState class
   @override
+  // ignore: no_logic_in_create_state
   SplashScreenState createState() => _SplashScreenState();
   
+  // ignore: non_constant_identifier_names
   _SplashScreenState() {}
 }
 

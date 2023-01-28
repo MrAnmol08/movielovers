@@ -1,5 +1,6 @@
 // ignore_for_file: unused_field, deprecated_member_use
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; 
 
@@ -61,23 +62,26 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
+
                   style: GoogleFonts.khand(color: const Color.fromARGB(255, 73, 69, 69)),
                   validator: (input) => input!.length < 8 ? 'Your password needs to be at least 8 characters' : null,
                   obscureText: true,
                   onSaved: (input) => _password = input!,
                 ),
+
                 const SizedBox(height: 20.0),
                 SizedBox(
                   width: double.infinity,
                   child: RaisedButton(
-                    color: Color.fromARGB(247, 241, 4, 4),
+                    color: const Color.fromARGB(247, 241, 4, 4),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
                         // Perform login here
                       }
                     },
-                    child: Text('Login', style: GoogleFonts.khand(color: const Color.fromARGB(255, 73, 69, 69)),),
+                    child: Text('Login', style: GoogleFonts.khand(fontSize: 25, fontWeight: FontWeight.bold , color: Colors.white )),
+                     
                   ),
                 ),
                 const SizedBox(height: 10.0,),
