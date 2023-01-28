@@ -1,7 +1,7 @@
 // ignore_for_file: unused_field, deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart'; 
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -80,11 +80,12 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(
                 width: double.infinity,
                   child: RaisedButton(
-                    color: const Color.fromARGB(247, 241, 4, 4),
+                    //color: Color.fromARGB(247, 168, 19, 19),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        
+                        Text('Create Account', 
+                    style: GoogleFonts.khand(fontSize: 25, fontWeight: FontWeight.bold , color: Color.fromARGB(255, 10, 0, 0) ));
                         // Perform create account here
                       }
                     },

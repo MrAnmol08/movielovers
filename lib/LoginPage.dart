@@ -39,6 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                     
                     
                     
+                    
                   ),
                 ),
                 const SizedBox(height: 20.0),
@@ -91,10 +92,14 @@ class _LoginPageState extends State<LoginPage> {
                         // Perform login here
                       }
                     },
-                    child: Text('Login', style: GoogleFonts.khand(fontSize: 25, fontWeight: FontWeight.bold , color: Colors.white )),
+                    child: Text('Login', 
+                    style: GoogleFonts.khand(fontSize: 25, fontWeight: FontWeight.bold , color: Colors.white )),
                      
                   ),
                 ),
+                
+
+                
                 
                 
               ],
