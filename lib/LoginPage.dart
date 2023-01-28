@@ -1,6 +1,5 @@
 // ignore_for_file: unused_field, deprecated_member_use
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart'; 
 
@@ -69,6 +68,18 @@ class _LoginPageState extends State<LoginPage> {
                   onSaved: (input) => _password = input!,
                 ),
 
+                const SizedBox(height: 10.0,), // Navigate to forgot password page
+                SizedBox(
+                  width: double.infinity,
+                  child: FlatButton(
+                    onPressed: () {
+                      
+                    },
+                    child: Text('Forgot Password',
+                     style: GoogleFonts.khand(color: const Color.fromARGB(3, 10, 221, 245)),),
+                  ),
+                ),
+
                 const SizedBox(height: 20.0),
                 SizedBox(
                   width: double.infinity,
@@ -84,17 +95,8 @@ class _LoginPageState extends State<LoginPage> {
                      
                   ),
                 ),
-                const SizedBox(height: 10.0,),
-                SizedBox(
-                  width: double.infinity,
-                  child: FlatButton(
-                    onPressed: () {
-                      // Navigate to forgot password page
-                    },
-                    child: Text('Forgot Password',
-                     style: GoogleFonts.khand(color: const Color.fromARGB(255, 73, 69, 69)),),
-                  ),
-                ),
+                
+                
               ],
             ),
           ),
