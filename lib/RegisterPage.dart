@@ -1,6 +1,7 @@
 // ignore_for_file: unused_field, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -27,17 +28,17 @@ class _RegisterPageState extends State<RegisterPage> {
       body: Form(
         key: _formKey,
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              const Text(
-                'Create Account',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              //const Text(
+                //'Create Account',
+                //style: TextStyle(
+                  //fontSize: 24.0,
+                  //fontWeight: FontWeight.bold,
+                //),
+              //),
               const SizedBox(height: 16.0),
               TextFormField(
                 decoration: const InputDecoration(
@@ -76,9 +77,18 @@ class _RegisterPageState extends State<RegisterPage> {
                 onSaved: (input) => _password = input!,
               ),
               const SizedBox(height: 16.0),
-              RaisedButton(
-                onPressed: _submit,
-                child: const Text('Create Account'),
+              SizedBox(
+                width: double.infinity,
+                  child: RaisedButton(
+                    color: const Color.fromARGB(247, 241, 4, 4),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        
+                        // Perform create account here
+                      }
+                    },
+                  ),
               ),
             ],
           ),
