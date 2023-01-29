@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        fixedColor: Colors.black,
+        //fixedColor: Colors.black,
         type: BottomNavigationBarType.fixed,
         //currentIndex: _selectedIndex,
         items: const <BottomNavigationBarItem> [
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "You"),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Color.fromARGB(255, 239, 169, 4),
         unselectedItemColor: const Color.fromARGB(255, 26, 2, 2),
         onTap: _onItemTapped,
        
