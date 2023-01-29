@@ -68,19 +68,6 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                   onSaved: (input) => _password = input!,
                 ),
-
-                const SizedBox(height: 10.0,), // Navigate to forgot password page
-                SizedBox(
-                  width: double.infinity,
-                  child: FlatButton(
-                    onPressed: () {
-                      
-                    },
-                    child: Text('Forgot Password',
-                     style: GoogleFonts.khand(color: const Color.fromARGB(3, 10, 221, 245)),),
-                  ),
-                ),
-
                 const SizedBox(height: 20.0),
                 SizedBox(
                   width: double.infinity,
@@ -98,15 +85,103 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 
+          //       const SizedBox(height: 10.0,), // Navigate to forgot password page
+          //       SizedBox(
+          //         width: double.infinity,
+          //         child: FlatButton(
+          //           onPressed: () {
+          //             //Navigator.pushNamed(context, '/forgot-password'); 
+          //             Navigator.of(context).pop();
+          //           },
+          //           child: Text('Forgot Password',
+          //            style: GoogleFonts.khand(color: const Color.fromARGB(3, 10, 221, 245)),),
+          //         ),
+          //       ),
 
                 
-                
-                
-              ],
+          //       Widget build(BuildContext context) {
+          //        return Scaffold(
+          //        // existing code
+          //         child: Column(
+          //          children: <Widget>[
+          // // existing code
+          //           SizedBox(
+          //             width: double.infinity,
+          //               child: FlatButton(
+          //                 onPressed: _showForgotPasswordDialog,
+          //                   child: Text('Forgot Password',
+          //                     style: GoogleFonts.khand(color: const Color.fromARGB(3, 10, 221, 245)),),
+
+          //class _LoginPageState extends State<LoginPage> {
+  // existing code
+
+  void _showForgotPasswordDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Forgot Password'),
+            content: TextField(
+              decoration: InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              keyboardType: TextInputType.emailAddress,
+              onChanged: (value) {
+                // Save the entered email value in a variable
+              },
+            ),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('Cancel'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              FlatButton(
+                child: Text('Submit'),
+                onPressed: () {
+                  // Send reset password link to the email entered
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // existing code
+      child: Column(
+        children: <Widget>[
+          // existing code
+          SizedBox(
+            width: double.infinity,
+            child: FlatButton(
+              onPressed: _showForgotPasswordDialog,
+              child: Text('Forgot Password',
+                style: GoogleFonts.khand(color: const Color.fromARGB(3, 10, 221, 245)),),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
 }
+
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+                
+                
+                
+         
