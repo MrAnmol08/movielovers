@@ -35,21 +35,29 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Navigation Bar Example"),
-      ),
-      body: Center(
-        child: Text("Selected: ${_selectedIndex + 1}"),
+        title: const Text("Home"),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {},
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        fixedColor: Colors.blue,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.local_play), label: 'Ticket'),
-          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: 'Product'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'You'),
+        fixedColor: Colors.black,
+        type: BottomNavigationBarType.fixed,
+        //currentIndex: _selectedIndex,
+        items: const <BottomNavigationBarItem> [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.local_play), label: "Ticket"),
+          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: "Product"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "You"),
         ],
         currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: const Color.fromARGB(255, 26, 2, 2),
         onTap: _onItemTapped,
+       
       ),
     );
   }

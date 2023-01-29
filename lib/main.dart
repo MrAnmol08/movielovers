@@ -16,7 +16,7 @@ class SplashScreen extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Movie Lovers',
-      home: MyHomePage(),
+      home: LoginPage(),
       
      
     );
