@@ -49,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
         //currentIndex: _selectedIndex,
         items: const <BottomNavigationBarItem> [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          
           BottomNavigationBarItem(icon: Icon(Icons.local_play), label: "Ticket"),
           BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: "Product"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "You"),
