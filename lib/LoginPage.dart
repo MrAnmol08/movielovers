@@ -24,25 +24,25 @@ class _loginState extends State<login> {
             mainAxisAlignment: MainAxisAlignment.center,
             // ignore: prefer_const_literals_to_create_immutables
             children:[
-              SizedBox(height: 20,),
-            Text('Welcome',
+              const SizedBox(height: 20,),
+            const Text('Welcome',
             style: 
             TextStyle(
               fontWeight:FontWeight.bold,
               fontSize: 36) ,),
 
-              SizedBox(height: 60,),
+              const SizedBox(height: 60,),
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Container(
                   decoration: BoxDecoration(
                    color: (Colors.grey[200]),
-                   border: Border.all(color: Color.fromARGB(255, 247, 247, 247)),
+                   border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
                    borderRadius: BorderRadius.circular(15),
                   ) ,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20.0),
                     child: TextField(
                      
                       decoration: InputDecoration(
@@ -54,17 +54,17 @@ class _loginState extends State<login> {
                 ),
               ),
 
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Container(
                   decoration: BoxDecoration(
                    color: (Colors.grey[200]),
-                   border: Border.all(color: Color.fromARGB(255, 247, 247, 247)),
+                   border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
                    borderRadius: BorderRadius.circular(15),
                   ) ,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20.0),
                     child: TextField(
                       obscureText: true,
                      
@@ -78,15 +78,15 @@ class _loginState extends State<login> {
               ),
 
             
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(color: Color.fromARGB(255, 241, 24, 8),
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(color: const Color.fromARGB(255, 241, 24, 8),
                   borderRadius: BorderRadius.circular(12) ),
-                  child: Center(
+                  child: const Center(
                     child: Text('Sign In',
                     style: TextStyle(color: Color.fromARGB(255, 247, 247, 247),
                     fontWeight:FontWeight.bold,
@@ -96,7 +96,7 @@ class _loginState extends State<login> {
                 ),
               ),
 
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

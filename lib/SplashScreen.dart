@@ -27,16 +27,16 @@ abstract class SplashScreenclassState extends StatefulWidget {
 }
 
 
-class _SplashScreenoneState extends State { // Create the state class for _SplashScreenone
+class _SplashScreenState extends State { // Create the state class for _SplashScreenone
   @override
   Widget build(BuildContext context) {
     return Scaffold( // Scaffold widget provides a basic layout structure
       body: Center(  // Center widget aligns the child widgets to the center of the 
-        child: Container(
+        child: SizedBox(
           width: 170, // Container widget allows for more flexible layout options
           height: 170,
           child: FittedBox(
-          child: Image.asset('assets/logo.png'),
+          child: Image.asset('assets/images/logo.png'),
         ),
       ),
        ),
@@ -48,17 +48,17 @@ class _SplashScreentwoState extends State {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 15), () {
+    Future.delayed(const Duration(seconds: 8), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const LoginPage()),
+        MaterialPageRoute(builder: (context) => const login()),
       );
     });
   }
   
  @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Text('Splash Screen'),
       ),
