@@ -96,6 +96,18 @@ class _loginState extends State<login> {
                 ),
               ),
 
+            SizedBox(height: 25),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text('Not a member?', style:TextStyle(color:Color.fromARGB(255, 1, 4, 12),
+                  fontWeight: FontWeight.bold )),
+                  
+                  Text(' Register', style:TextStyle(color:Color.fromARGB(255, 6, 64, 240),
+                  fontWeight: FontWeight.bold ) ,),
+                ],
+              ),
 
             ]
           ),
