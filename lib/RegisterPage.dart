@@ -1,7 +1,8 @@
 // ignore_for_file: unused_field, deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart'; 
+import 'package:google_fonts/google_fonts.dart';
+import 'package:movielovers/Login.dart'; 
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -21,7 +22,8 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.pop(context,
+          MaterialPageRoute(builder: (context) => const login()),),
         ),
         title: const Text('Create Account'),
       ),
@@ -39,58 +41,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   //fontWeight: FontWeight.bold,
                 //),
               //),
-              const SizedBox(height: 16.0),
-              TextFormField(
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.person),
-                  labelText: 'Name',
-                ),
-                validator: (input) => input!.trim().isEmpty ? 'Please enter a valid name' : null,
-                onSaved: (input) => _name = input!,
-              ),
-              const SizedBox(height: 16.0),
-              TextFormField(
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.email),
-                  labelText: 'Email',
-                ),
-                validator: (input) => !input!.contains('@') ? 'Please enter a valid email' : null,
-                onSaved: (input) => _email = input!,
-              ),
-              const SizedBox(height: 16.0),
-              TextFormField(
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.phone),
-                  labelText: 'Phone',
-                ),
-                validator: (input) => input!.trim().length < 10 ? 'Please enter a valid phone number' : null,
-                onSaved: (input) => _phone = input!,
-              ),
-              const SizedBox(height: 16.0),
-              TextFormField(
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.lock),
-                  labelText: 'Password',
-                ),
-                obscureText: true,
-                validator: (input) => input!.length < 8 ? 'Password must be at least 8 characters' : null,
-                onSaved: (input) => _password = input!,
-              ),
-              const SizedBox(height: 16.0),
-              SizedBox(
-                width: double.infinity,
-                  child: RaisedButton(
-                    //color: Color.fromARGB(247, 168, 19, 19),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-                        Text('Create Account', 
-                    style: GoogleFonts.khand(fontSize: 25, fontWeight: FontWeight.bold , color: Color.fromARGB(255, 10, 0, 0) ));
-                        // Perform create account here
-                      }
-                    },
-                  ),
-              ),
+              
             ],
           ),
         ),

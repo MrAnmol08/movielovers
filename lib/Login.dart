@@ -49,6 +49,7 @@ class _loginState extends State<login> {
                     child: TextField(
                      
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email),
                         border: InputBorder.none, 
                         hintText: 'Email',
                       ),
@@ -72,6 +73,7 @@ class _loginState extends State<login> {
                       obscureText: true,
                      
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
                         border: InputBorder.none, 
                         hintText: 'Password',
                       ),
