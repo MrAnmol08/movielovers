@@ -77,6 +77,26 @@ class _loginState extends State<login> {
                 ),
               ),
 
+            
+              SizedBox(height: 15),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Container(
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(color: Color.fromARGB(255, 241, 24, 8),
+                  borderRadius: BorderRadius.circular(12) ),
+                  child: Center(
+                    child: Text('Sign In',
+                    style: TextStyle(color: Color.fromARGB(255, 247, 247, 247),
+                    fontWeight:FontWeight.bold,
+                    fontSize: 18,
+                    )),
+                  ),  
+                ),
+              ),
+
+
             ]
           ),
         ),
