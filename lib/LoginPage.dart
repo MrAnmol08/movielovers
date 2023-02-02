@@ -30,6 +30,29 @@ class _loginState extends State<login> {
             TextStyle(
               fontWeight:FontWeight.bold,
               fontSize: 36) ,),
+
+              SizedBox(height: 60,),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  decoration: BoxDecoration(
+                   color: (Colors.grey[200]),
+                   border: Border.all(color: Color.fromARGB(255, 247, 247, 247)),
+                   borderRadius: BorderRadius.circular(15),
+                  ) ,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: TextField(
+                     
+                      decoration: InputDecoration(
+                        border: InputBorder.none, 
+                        hintText: 'Email',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ]
           ),
         ),
