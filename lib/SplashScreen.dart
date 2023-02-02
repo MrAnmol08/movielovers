@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'LoginPage.dart';
+import 'Login.dart';
 
 class SplashScreenState extends State { // Create the state class for SplashScreen
   @override// override the build method which returns the widget tree associated with SplashScreen
@@ -27,43 +27,52 @@ abstract class SplashScreenclassState extends StatefulWidget {
 }
 
 
+// ignore: unused_element
 class _SplashScreenState extends State { // Create the state class for _SplashScreenone
   @override
   Widget build(BuildContext context) {
     return Scaffold( // Scaffold widget provides a basic layout structure
-      body: Center(  // Center widget aligns the child widgets to the center of the 
-        child: SizedBox(
-          width: 170, // Container widget allows for more flexible layout options
-          height: 170,
-          child: FittedBox(
-          child: Image.asset('assets/images/logo.png'),
-        ),
-      ),
-       ),
+      body: Image.asset('assets/images/logofinal.png')
+      
+    
+        
+      
+    
+       //Center(  // Center widget aligns the child widgets to the center of the 
+        //child: SizedBox(
+          //width: 170, // Container widget allows for more flexible layout options
+          //height: 170,
+          //child: FittedBox(
+          //child: Image.asset('assets/images/logofinal.png'),
+        //),
+      //),
+       //)
+       
     );
   }
 }
+//
 
-class _SplashScreentwoState extends State {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 8), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const login()),
-      );
-    });
-  }
+// class _SplashScreentwoState extends State {
+//   @override
+//   void initState() {
+//     super.initState();
+//     Future.delayed(const Duration(seconds: 8), () {
+//       Navigator.push(
+//         context,
+//         MaterialPageRoute(builder: (context) => const login()),
+//       );
+//     });
+//   }
   
- @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Splash Screen'),
-      ),
-    );
-  }
-}
+//  @override
+//   Widget build(BuildContext context) {
+//     return const Scaffold(
+//       body: Center(
+//         child: Text('Splash Screen'),
+//       ),
+//     );
+//   }
+// }
 
 

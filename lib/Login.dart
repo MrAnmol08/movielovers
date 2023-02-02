@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:movielovers/RegisterPage.dart';
 
 
 // ignore: camel_case_types
@@ -76,10 +79,20 @@ class _loginState extends State<login> {
                   ),
                 ),
               ),
-
+             
+             
             
               const SizedBox(height: 15),
+              
+                 Row(
+                 children: const [
+                  Text('Forgot password?', style: TextStyle(color:Color.fromARGB(255, 1, 4, 12), fontWeight: FontWeight.bold,),textAlign:TextAlign.left ,)
 
+                 ],
+                ),
+              
+
+               const SizedBox(height: 15),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
@@ -100,12 +113,24 @@ class _loginState extends State<login> {
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text('Not a member?', style:TextStyle(color:Color.fromARGB(255, 1, 4, 12),
                   fontWeight: FontWeight.bold )),
                   
                   Text(' Register', style:TextStyle(color:Color.fromARGB(255, 6, 64, 240),
                   fontWeight: FontWeight.bold ) ,),
+                  InkWell(
+                    onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const RegisterPage()),
+            );
+          },
+                    
+                      
+                    
+
+                  )
                 ],
               ),
 

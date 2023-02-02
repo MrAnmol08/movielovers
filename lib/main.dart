@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movielovers/Login.dart';
+import 'package:movielovers/RegisterPage.dart';
 
 
 void main() => runApp(const SplashScreen());
@@ -12,7 +14,7 @@ class SplashScreen extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Movie Lovers',
-      home: SplashScreen(),
+      home: RegisterPage(),
       
      
     );
