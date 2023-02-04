@@ -34,7 +34,7 @@ class _loginState extends State<login> {
               children:[
 
                 SizedBox(height: 5,),
-                Image.asset('assets/images/login.png',
+                Image.asset('assets/images/login.gif',
                 height: 200,
                 width: 200,),
               //   const SizedBox(height: 20,),
@@ -141,7 +141,7 @@ class _loginState extends State<login> {
                     fontWeight: FontWeight.bold, )), 
                     
                     Text(' Register', style:TextStyle(color:Color.fromARGB(255, 6, 64, 240),
-                    fontWeight: FontWeight.bold ) ,),
+                    fontWeight: FontWeight.bold ) ),
             //         InkWell(
             //           onTap: () {
             //   Navigator.push(

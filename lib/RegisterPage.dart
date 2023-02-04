@@ -38,7 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
                 SizedBox(height: 20,),
-                Image.asset('assets/images/register.png',
+                Image.asset('assets/images/register.gif',
                 height: 200,
                 width: 200,),
               // Text('Register', textAlign: TextAlign.center,
