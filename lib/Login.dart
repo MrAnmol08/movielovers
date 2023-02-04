@@ -26,7 +26,7 @@ class _loginState extends State<login> {
         
         
         child: Center(
-          child: SingleChildScrollView(
+          //child: SingleChildScrollView(
             child: Column( 
               
               mainAxisAlignment: MainAxisAlignment.center,
@@ -52,12 +52,13 @@ class _loginState extends State<login> {
                     child: const Padding(
                       padding: EdgeInsets.only(left: 20.0),
                       child: TextField(
-                       
+                       keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           prefixIcon: Icon(Icons.email),
                           border: InputBorder.none, 
                           hintText: 'Email',
                         ),
+                          
                       ),
                     ),
                   ),
@@ -155,7 +156,7 @@ class _loginState extends State<login> {
             ),
           ),
         ),
-      ) ,
+     // ) ,
       
     );
   }

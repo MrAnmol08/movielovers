@@ -19,6 +19,8 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       resizeToAvoidBottomInset: false,
+       backgroundColor:  const Color.fromARGB(255, 103, 3, 3),
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
@@ -27,34 +29,36 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
         title: const Text('Create Account'),
       ),
-      body: Form(
-        key: _formKey,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: const <Widget>[
-              //const Text(
-                //'Create Account',
-                //style: TextStyle(
-                  //fontSize: 24.0,
-                  //fontWeight: FontWeight.bold,
-                //),
-              //),
+
+      
+      // body: Form(
+      //   key: _formKey,
+      //   child: Padding(
+      //     padding: const EdgeInsets.all(12.0),
+      //     child: Column(
+      //       mainAxisAlignment: MainAxisAlignment.start,
+      //       children: const <Widget>[
+      //         //const Text(
+      //           //'Create Account',
+      //           //style: TextStyle(
+      //             //fontSize: 24.0,
+      //             //fontWeight: FontWeight.bold,
+      //           //),
+      //         //),
               
-            ],
+      //       ],
             
-          ),
-        ),
-      ),
+      //     ),
+      //   ),
+      // ),
 
       
     );
   }
 
-  void _submit() {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState;
-    }
-  }
+  // void _submit() {
+  //   if (_formKey.currentState!.validate()) {
+  //     _formKey.currentState;
+  //   }
+  // }
 }
