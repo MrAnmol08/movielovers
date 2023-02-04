@@ -1,4 +1,4 @@
-// ignore_for_file: unused_field, deprecated_member_use
+// ignore_for_file: unused_field, deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -36,7 +36,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children:const [
+            children: [
                 SizedBox(height: 20,),
               Text('Register', textAlign: TextAlign.center,
               style: 
@@ -45,8 +45,31 @@ class _RegisterPageState extends State<RegisterPage> {
                 fontSize: 20) ,),
 
                 SizedBox(height: 20),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: (Colors.grey[200]),
+                       border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
+                        borderRadius: BorderRadius.circular(15),
+                    ),
 
-                
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: TextField(
+                       keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.person),
+                          border: InputBorder.none, 
+                          hintText: 'Full Name',
+                        ),
+                          
+                      ),
+                    ),
+                  )
+                )
+
+
             ]
             
 
