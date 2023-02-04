@@ -36,7 +36,8 @@ class _SplashScreenState extends State { // Create the state class for _SplashSc
     return Scaffold( // Scaffold widget provides a basic layout structure
       body: Image.asset('assets/images/logofinal.png',
       height: 200,
-      width: 200,)
+      width: 200,
+      )
       
     
         
