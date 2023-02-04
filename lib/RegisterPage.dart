@@ -20,8 +20,9 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
        resizeToAvoidBottomInset: false,
-       backgroundColor:  const Color.fromARGB(255, 103, 3, 3),
+       backgroundColor:  Color.fromARGB(255, 253, 251, 251),
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 112, 4, 4) ,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context,
@@ -30,6 +31,30 @@ class _RegisterPageState extends State<RegisterPage> {
         title: const Text('Create Account'),
       ),
 
+      body: SafeArea(
+        
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children:const [
+                SizedBox(height: 20,),
+              Text('Register', textAlign: TextAlign.center,
+              style: 
+              TextStyle(
+                fontWeight:FontWeight.bold,
+                fontSize: 20) ,),
+
+                SizedBox(height: 20),
+
+                
+            ]
+            
+
+          )
+        ),
+
+      ),
+  
       
       // body: Form(
       //   key: _formKey,
