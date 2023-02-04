@@ -67,7 +67,34 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ),
                   )
-                )
+                ),
+               
+               SizedBox(height: 15),
+
+               Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: (Colors.grey[200]),
+                       border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
+                        borderRadius: BorderRadius.circular(15),
+                    ),
+
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: TextField(
+                       keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.email),
+                          border: InputBorder.none, 
+                          hintText: 'Email',
+                        ),
+                          
+                      ),
+                    ),
+                  )
+                ),
+
 
 
             ]
