@@ -35,7 +35,7 @@ class _RegisterPageState extends State<RegisterPage> {
         
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
                 SizedBox(height: 20,),
               Text('Register', textAlign: TextAlign.center,
@@ -43,6 +43,8 @@ class _RegisterPageState extends State<RegisterPage> {
               TextStyle(
                 fontWeight:FontWeight.bold,
                 fontSize: 20) ,),
+
+                // Name section in register page
 
                 SizedBox(height: 20),
                 Padding(
@@ -68,6 +70,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   )
                 ),
+
+                // Email section in register page
                
                SizedBox(height: 15),
 
@@ -95,6 +99,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   )
                 ),
 
+                // Phone Number section in register page
+
                 SizedBox(height: 15),
 
                 Padding(
@@ -120,6 +126,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   )
                 ),
+
+                // Password section in register page
 
                 SizedBox(height: 15),
 
