@@ -1,4 +1,4 @@
-// ignore_for_file: unused_field, deprecated_member_use
+// ignore_for_file: unused_field, deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,7 +19,10 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       resizeToAvoidBottomInset: false,
+       backgroundColor:  Color.fromARGB(255, 253, 251, 251),
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 112, 4, 4) ,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context,
@@ -27,34 +30,138 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
         title: const Text('Create Account'),
       ),
-      body: Form(
-        key: _formKey,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
+
+      body: SafeArea(
+        
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const <Widget>[
-              //const Text(
-                //'Create Account',
-                //style: TextStyle(
-                  //fontSize: 24.0,
-                  //fontWeight: FontWeight.bold,
-                //),
-              //),
-              
-            ],
+            children: [
+                SizedBox(height: 20,),
+              Text('Register', textAlign: TextAlign.center,
+              style: 
+              TextStyle(
+                fontWeight:FontWeight.bold,
+                fontSize: 20) ,),
+
+                SizedBox(height: 20),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: (Colors.grey[200]),
+                       border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
+                        borderRadius: BorderRadius.circular(15),
+                    ),
+
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: TextField(
+                       keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.person),
+                          border: InputBorder.none, 
+                          hintText: 'Full Name',
+                        ),
+                          
+                      ),
+                    ),
+                  )
+                ),
+               
+               SizedBox(height: 15),
+
+               Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: (Colors.grey[200]),
+                       border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
+                        borderRadius: BorderRadius.circular(15),
+                    ),
+
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: TextField(
+                       keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.email),
+                          border: InputBorder.none, 
+                          hintText: 'Email',
+                        ),
+                          
+                      ),
+                    ),
+                  )
+                ),
+
+                SizedBox(height: 15),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: (Colors.grey[200]),
+                       border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
+                        borderRadius: BorderRadius.circular(15),
+                    ),
+
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: TextField(
+                       keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.phone),
+                          border: InputBorder.none, 
+                          hintText: 'Phone Number',
+                        ),
+                          
+                      ),
+                    ),
+                  )
+                ),
+
+
+
+
+
+            ]
             
-          ),
+
+          )
         ),
+
       ),
+  
+      
+      // body: Form(
+      //   key: _formKey,
+      //   child: Padding(
+      //     padding: const EdgeInsets.all(12.0),
+      //     child: Column(
+      //       mainAxisAlignment: MainAxisAlignment.start,
+      //       children: const <Widget>[
+      //         //const Text(
+      //           //'Create Account',
+      //           //style: TextStyle(
+      //             //fontSize: 24.0,
+      //             //fontWeight: FontWeight.bold,
+      //           //),
+      //         //),
+              
+      //       ],
+            
+      //     ),
+      //   ),
+      // ),
 
       
     );
   }
 
-  void _submit() {
-    if (_formKey.currentState!.validate()) {
-      _formKey.currentState;
-    }
-  }
+  // void _submit() {
+  //   if (_formKey.currentState!.validate()) {
+  //     _formKey.currentState;
+  //   }
+  // }
 }
