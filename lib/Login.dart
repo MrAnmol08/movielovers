@@ -34,7 +34,7 @@ class _loginState extends State<login> {
               children:[
 
                 SizedBox(height: 5,),
-                Image.asset('assets/images/login.png',
+                Image.asset('assets/images/login.gif',
                 height: 200,
                 width: 200,),
               //   const SizedBox(height: 20,),
