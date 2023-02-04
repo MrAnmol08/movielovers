@@ -1,6 +1,8 @@
+// ignore_for_file: unnecessary_string_escapes
+
 import 'package:flutter/material.dart';
 
-import 'Login.dart';
+
 
 class SplashScreenState extends State { // Create the state class for SplashScreen
   @override// override the build method which returns the widget tree associated with SplashScreen
@@ -32,7 +34,7 @@ class _SplashScreenState extends State { // Create the state class for _SplashSc
   @override
   Widget build(BuildContext context) {
     return Scaffold( // Scaffold widget provides a basic layout structure
-      body: Image.asset('assets/images/logofinal.png')
+      body: Image.asset('assets\images\logofinal.png')
       
     
         

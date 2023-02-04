@@ -33,7 +33,7 @@ class _RegisterPageState extends State<RegisterPage> {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
+            children: const <Widget>[
               //const Text(
                 //'Create Account',
                 //style: TextStyle(
@@ -43,9 +43,12 @@ class _RegisterPageState extends State<RegisterPage> {
               //),
               
             ],
+            
           ),
         ),
       ),
+
+      
     );
   }
 
