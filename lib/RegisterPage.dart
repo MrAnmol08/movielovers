@@ -158,6 +158,29 @@ class _RegisterPageState extends State<RegisterPage> {
                   )
                 ),
 
+                // Sign Up section on register page
+
+                SizedBox(height: 15),
+
+                Padding(
+                  
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  child: Container(
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(color: const Color.fromARGB(255, 241, 24, 8),
+                    borderRadius: BorderRadius.circular(12) ),
+                    
+                    child: const Center(
+                      child: Text('Sign Up',
+                      style: TextStyle(color: Color.fromARGB(255, 247, 247, 247),
+                      fontWeight:FontWeight.bold,
+                      fontSize: 18, 
+                      
+                      )),
+                    ),  
+                  ),
+                ),
+
 
 
 
