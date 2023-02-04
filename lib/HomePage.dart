@@ -14,11 +14,44 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column( children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                Text(
+                  'Movie Lovers',
+                  style: TextStyle(
+                    color: Colors.black,
+                     fontWeight: FontWeight.bold,
+                     fontSize: 24 ),
+                   
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
+ 
+                    Icons.shopping_cart,  ),
+                ),
+                
+              ],
+            )
+          ],
+            
+          ),
+        ),
+      ),
+      
 
       //Navigation bar on homepage
       bottomNavigationBar: Container(
         
-         color: Color.fromARGB(255, 255, 255, 255),
+        
+         color: Color.fromARGB(255, 251, 248, 248),
+         
     
         child: Padding(
           
@@ -40,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                 icon: Icons.movie_outlined,
               text: 'Ticket',), // Ticket icon with name
               GButton(
-                icon: Icons.shopping_cart,
+                icon: Icons.production_quantity_limits,
               text: 'Product', //Product icon with name
               ),
               GButton(
