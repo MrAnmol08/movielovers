@@ -1,7 +1,7 @@
 // ignore_for_file: unused_field, deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:movielovers/Login.dart'; 
 
 class RegisterPage extends StatefulWidget {
@@ -35,14 +35,17 @@ class _RegisterPageState extends State<RegisterPage> {
         
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
                 SizedBox(height: 20,),
-              Text('Register', textAlign: TextAlign.center,
-              style: 
-              TextStyle(
-                fontWeight:FontWeight.bold,
-                fontSize: 20) ,),
+                Image.asset('assets/images/register.png',
+                height: 200,
+                width: 200,),
+              // Text('Register', textAlign: TextAlign.center,
+              // style: 
+              // TextStyle(
+              //   fontWeight:FontWeight.bold,
+              //   fontSize: 20) ,),
 
                 // Name section in register page
 
