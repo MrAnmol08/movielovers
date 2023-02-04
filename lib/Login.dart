@@ -32,12 +32,17 @@ class _loginState extends State<login> {
               mainAxisAlignment: MainAxisAlignment.center,
               // ignore: prefer_const_literals_to_create_immutables
               children:[
-                const SizedBox(height: 20,),
-              const Text('Welcome', textAlign: TextAlign.center,
-              style: 
-              TextStyle(
-                fontWeight:FontWeight.bold,
-                fontSize: 36) ,),
+
+                SizedBox(height: 5,),
+                Image.asset('assets/images/login.png',
+                height: 200,
+                width: 200,),
+              //   const SizedBox(height: 20,),
+              // const Text('Welcome', textAlign: TextAlign.center,
+              // style: 
+              // TextStyle(
+              //   fontWeight:FontWeight.bold,
+              //   fontSize: 36) ,),
           
                 const SizedBox(height: 40,),
           
