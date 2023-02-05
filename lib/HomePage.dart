@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:movielovers/Login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -38,12 +42,25 @@ class _HomePageState extends State<HomePage> {
                 ),
                 
               ],
+            ),
+
+            SizedBox(height:15),
+
+            // ignore: sized_box_for_whitespace
+            Container(
+              
+             
+              
             )
+            
           ],
+
+          
             
           ),
         ),
       ),
+      
       
 
       //Navigation bar on homepage
@@ -55,14 +72,22 @@ class _HomePageState extends State<HomePage> {
     
         child: Padding(
           
+          
+          
           padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-          child: GNav( //Using google navigation bar
-            backgroundColor: Color.fromARGB(255, 251, 248, 248), 
+          
+          
+          child: GNav(
+            
+             //Using google navigation bar
+            backgroundColor: Color.fromARGB(255, 246, 244, 244),//Color.fromARGB(255, 251, 248, 248), 
             color: Color.fromARGB(255, 3, 3, 3), // icon color
             activeColor: Color.fromARGB(255, 247, 162, 3), //after selected color
             tabBackgroundColor: Color.fromARGB(255, 212, 63, 63), //after selected background color
             gap: 9,
             padding: EdgeInsets.all(18),
+            
+            
             // ignore: prefer_const_literals_to_create_immutables
             tabs:[
               GButton(
