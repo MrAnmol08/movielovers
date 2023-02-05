@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:movielovers/RegisterPage.dart';
+//import 'package:movielovers/RegisterPage.dart';
 
 
 // ignore: camel_case_types
