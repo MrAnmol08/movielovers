@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "954536331020",
-    "project_id": "movielovers-3ea8f",
-    "storage_bucket": "movielovers-3ea8f.appspot.com"
+    "project_number": "270936174335",
+    "project_id": "movielovers-b9535",
+    "storage_bucket": "movielovers-b9535.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:954536331020:android:f26dcd9d3a9c48121e6b29",
+        "mobilesdk_app_id": "1:270936174335:android:7d3d517215455a20a7e6ca",
         "android_client_info": {
           "package_name": "com.example.movielovers"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "270936174335-79v3vt72jjbee59ien075kqn7qnrj635.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDafN91cAlriqUErN7l5tD6vGcbAUmAgMg"
+          "current_key": "AIzaSyDjVCBaOI2tuYogOggyOFkXq4gxKqf0muo"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270936174335-79v3vt72jjbee59ien075kqn7qnrj635.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
