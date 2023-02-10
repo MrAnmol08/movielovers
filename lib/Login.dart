@@ -20,7 +20,7 @@ class _loginState extends State<login> {
       resizeToAvoidBottomInset: false,
       
       
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 251, 250, 250),
     
       body: SafeArea(
         
@@ -35,6 +35,7 @@ class _loginState extends State<login> {
 
                 SizedBox(height: 5,),
                 Image.asset('assets/images/login.gif',
+                
                 height: 200,
                 width: 200,),
               //   const SizedBox(height: 20,),
@@ -70,6 +71,8 @@ class _loginState extends State<login> {
                 ),
           
                 const SizedBox(height: 15),
+
+               
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Container(
@@ -96,15 +99,24 @@ class _loginState extends State<login> {
                
               
                 const SizedBox(height: 15),
-                
-                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                   children: const [
-            
-                    Text('                                                                    Forgot password?', style: TextStyle(color:Color.fromARGB(255, 1, 4, 12), fontWeight: FontWeight.bold,),textAlign:TextAlign.right ,)
-          
-                   ],
+
+                 Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Forgot Password?',
+                        style:TextStyle(color: Color.fromARGB(255, 4, 136, 251),
+                        fontWeight: FontWeight.bold),
+                        
+
+                      ),
+                    ],
                   ),
+                ),
+                
+                   
                 
           
                  const SizedBox(height: 15),
@@ -132,7 +144,7 @@ class _loginState extends State<login> {
           
                
           
-              const SizedBox(height: 10),
+              const SizedBox(height: 15),
           
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -140,7 +152,7 @@ class _loginState extends State<login> {
                     Text('Not a member?',textAlign: TextAlign.end, style:TextStyle(color:Color.fromARGB(255, 1, 4, 12),
                     fontWeight: FontWeight.bold, )), 
                     
-                    Text(' Register', style:TextStyle(color:Color.fromARGB(255, 6, 64, 240),
+                    Text(' Register', style:TextStyle(color:Color.fromARGB(255, 4, 136, 251),
                     fontWeight: FontWeight.bold ) ),
             //         InkWell(
             //           onTap: () {
