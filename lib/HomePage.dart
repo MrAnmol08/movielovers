@@ -1,7 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:movielovers/Login.dart';
@@ -22,41 +19,12 @@ class _HomePageState extends State<HomePage> {
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column( children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              // ignore: prefer_const_literals_to_create_immutables
-              children: [
-                Text(
-                  'Movie Lovers',
-                  style: TextStyle(
-                    color: Colors.black,
-                     fontWeight: FontWeight.bold,
-                     fontSize: 24 ),
-                   
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
- 
-                    Icons.shopping_cart,  ),
-                ),
-                
-              ],
-            ),
-
+           
             SizedBox(height:15),
 
             // ignore: sized_box_for_whitespace
             Container(
-              
-             
-              
             )
-            
-          ],
-
-          
-            
           ),
         ),
       ),
@@ -65,18 +33,9 @@ class _HomePageState extends State<HomePage> {
 
       //Navigation bar on homepage
       bottomNavigationBar: Container(
-        
-        
          color: Color.fromARGB(255, 251, 248, 248),
-         
-    
         child: Padding(
-          
-          
-          
           padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-          
-          
           child: GNav(
             
              //Using google navigation bar
@@ -107,7 +66,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ]),
         ),
-      ),
       );
     
   }
