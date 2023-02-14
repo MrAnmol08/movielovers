@@ -115,18 +115,10 @@ class _HomePageState extends State<HomePage> {
       ),
         );
       
-        
-       
-           
-            SizedBox(height:15);
-
-            // ignore: sized_box_for_whitespace
-            Container( 
-            
-            );
-         
-          
       
+    
+      
+       SizedBox(height:15);
 
       //Navigation bar on homepage
       Container(
@@ -161,10 +153,6 @@ class _HomePageState extends State<HomePage> {
                 icon: Icons.supervised_user_circle,
               text: 'You', //You icon with name 
             
-              ),
-            ]),
-        ),
-      );
       
     
   }
