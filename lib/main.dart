@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movielovers/HomePage.dart';
+//import 'package:movielovers/HomePage.dart';
+import 'package:movielovers/Login.dart';
 //import 'package:movielovers/Login.dart';
 //import 'package:movielovers/HomePage.dart';
 //import 'package:movielovers/Login.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Movie Lovers',
-      home: HomePage(),
+      home: login(),
       
      
     );

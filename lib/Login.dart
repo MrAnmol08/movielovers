@@ -14,6 +14,12 @@ class login extends StatefulWidget {
 
 // ignore: camel_case_types
 class _loginState extends State<login> {
+
+  //Text controller
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -46,55 +52,105 @@ class _loginState extends State<login> {
               //   fontSize: 36) ,),
           
                 const SizedBox(height: 40,),
-          
+
+                //Email Address
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Container(
-                    decoration: BoxDecoration(
-                     color: (Colors.grey[200]),
-                     border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
-                     borderRadius: BorderRadius.circular(15),
-                    ) ,
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 20.0),
-                      child: TextField(
-                       keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.email),
-                          border: InputBorder.none, 
-                          hintText: 'Email',
-                        ),
-                          
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(12),
                       ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      hintText: 'Email',
+                      fillColor: Color.fromARGB(255, 253, 253, 253),
+                      filled: true,
+                       prefixIcon: Icon(Icons.email),
                     ),
                   ),
                 ),
+          
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 20),
+                //   child: Container(
+                //     decoration: BoxDecoration(
+                //      color: (Colors.grey[200]),
+                //      border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
+                //      borderRadius: BorderRadius.circular(15),
+                //     ) ,
+                    
+                //     child: const Padding(
+                //       padding: EdgeInsets.only(left: 20.0),
+                //       child: TextField(
+                //         controller: _emailController,
+
+                //        keyboardType: TextInputType.emailAddress,
+                //         decoration: InputDecoration(
+                //           focusedBorder: OutlineInputBorder(
+                //             borderSide: BorderSide(color: Color.fromARGB(255, 16, 0, 13)),
+                //           ),
+                //           prefixIcon: Icon(Icons.email),
+                //           border: InputBorder.none, 
+                //           hintText: 'Email',
+                //         ),
+                          
+                //       ),
+                //     ),
+                //   ),
+                // ),
           
                 const SizedBox(height: 15),
 
-               
+                //Password
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Container(
-                    decoration: BoxDecoration(
-                     color: (Colors.grey[200]),
-                     border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
-                     borderRadius: BorderRadius.circular(15),
-                    ) ,
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 20.0),
-                      child: TextField(
-                        obscureText: true,
-                       
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.lock),
-                          border: InputBorder.none, 
-                          hintText: 'Password',
-                        ),
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(12),
                       ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      hintText: 'Password',
+                      fillColor: Color.fromARGB(255, 253, 253, 253),
+                      filled: true,
+                       prefixIcon: Icon(Icons.lock),
                     ),
                   ),
                 ),
+
+
+               
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 20),
+                //   child: Container(
+                //     decoration: BoxDecoration(
+                //      color: (Colors.grey[200]),
+                //      border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
+                //      borderRadius: BorderRadius.circular(15),
+                //     ) ,
+                //     child: const Padding(
+                //       padding: EdgeInsets.only(left: 20.0),
+                //       child: TextField(
+                //         //controller: _passwordController,
+                //         obscureText: true,
+                       
+                //         decoration: InputDecoration(
+                //           prefixIcon: Icon(Icons.lock),
+                //           border: InputBorder.none, 
+                //           hintText: 'Password',
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
                
                
               
