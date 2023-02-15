@@ -44,13 +44,6 @@ class _loginState extends State<login> {
                 
                 height: 200,
                 width: 200,),
-              //   const SizedBox(height: 20,),
-              // const Text('Welcome', textAlign: TextAlign.center,
-              // style: 
-              // TextStyle(
-              //   fontWeight:FontWeight.bold,
-              //   fontSize: 36) ,),
-          
                 const SizedBox(height: 40,),
 
                 //Email Address
@@ -74,38 +67,9 @@ class _loginState extends State<login> {
                   ),
                 ),
           
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(horizontal: 20),
-                //   child: Container(
-                //     decoration: BoxDecoration(
-                //      color: (Colors.grey[200]),
-                //      border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
-                //      borderRadius: BorderRadius.circular(15),
-                //     ) ,
-                    
-                //     child: const Padding(
-                //       padding: EdgeInsets.only(left: 20.0),
-                //       child: TextField(
-                //         controller: _emailController,
-
-                //        keyboardType: TextInputType.emailAddress,
-                //         decoration: InputDecoration(
-                //           focusedBorder: OutlineInputBorder(
-                //             borderSide: BorderSide(color: Color.fromARGB(255, 16, 0, 13)),
-                //           ),
-                //           prefixIcon: Icon(Icons.email),
-                //           border: InputBorder.none, 
-                //           hintText: 'Email',
-                //         ),
-                          
-                //       ),
-                //     ),
-                //   ),
-                // ),
+                
           
                 const SizedBox(height: 15),
-
-                //Password
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: TextField(
@@ -128,34 +92,8 @@ class _loginState extends State<login> {
 
 
                
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(horizontal: 20),
-                //   child: Container(
-                //     decoration: BoxDecoration(
-                //      color: (Colors.grey[200]),
-                //      border: Border.all(color: const Color.fromARGB(255, 247, 247, 247)),
-                //      borderRadius: BorderRadius.circular(15),
-                //     ) ,
-                //     child: const Padding(
-                //       padding: EdgeInsets.only(left: 20.0),
-                //       child: TextField(
-                //         //controller: _passwordController,
-                //         obscureText: true,
-                       
-                //         decoration: InputDecoration(
-                //           prefixIcon: Icon(Icons.lock),
-                //           border: InputBorder.none, 
-                //           hintText: 'Password',
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-               
-               
-              
+                
                 const SizedBox(height: 15),
-
                  Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
@@ -165,8 +103,6 @@ class _loginState extends State<login> {
                         'Forgot Password?',
                         style:TextStyle(color: Color.fromARGB(255, 4, 136, 251),
                         fontWeight: FontWeight.bold),
-                        
-
                       ),
                     ],
                   ),
@@ -176,9 +112,6 @@ class _loginState extends State<login> {
                 
           
                  const SizedBox(height: 15),
-          
-                 
-                 
                 Padding(
                   
                   padding: const EdgeInsets.symmetric(horizontal: 22),
