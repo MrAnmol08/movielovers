@@ -45,10 +45,6 @@ class _HomePageState extends State<HomePage> {
         Stack(
           children: [
             
-            InkWell(
-              onTap:(() {
-                print(currentIndex);
-              } ),
 
               child: CarouselSlider(
                 items: imagelist
@@ -110,22 +106,10 @@ class _HomePageState extends State<HomePage> {
               ),
               ],
             ),
- 
           ],
-      ), 
-          
-      );
-      
-    
-      
-      //  const SizedBox(height:15);
 
-      //  //Navigation bar on homepage
-      // Container(
-      //    color: Color.fromARGB(255, 251, 248, 248),
-      //   child: Padding(
-      //     padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-      //     child: GNav(
+
+
             
       //        //Using google navigation bar
       //       backgroundColor: Color.fromARGB(255, 246, 244, 244),//Color.fromARGB(255, 251, 248, 248), 
@@ -153,10 +137,6 @@ class _HomePageState extends State<HomePage> {
       //           icon: Icons.supervised_user_circle,
       //         text: 'You', //You icon with name 
             
-      //         ),
-      //       ]),
-      //   ),
-      //   );
       
         
        
@@ -165,8 +145,6 @@ class _HomePageState extends State<HomePage> {
       // );
 
       
-      
-    
-  }
-}
+  
+  
  
