@@ -1,11 +1,16 @@
 // ignore_for_file: unused_field, deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:movielovers/Auth/auth_page.dart';
 
 import 'package:movielovers/Login.dart'; 
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  final VoidCallback showloginpage;
+  const RegisterPage({
+    Key? key,
+    required this.showloginpage
+    }) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -15,6 +20,18 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   late String _name, _email, _phone, _password;
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  @override
+  void dispose(){
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
+
+  Future signUp() async {
+    
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +43,7 @@ class _RegisterPageState extends State<RegisterPage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context,
-          MaterialPageRoute(builder: (context) => const login()),),
+          MaterialPageRoute(builder: (context) =>  login()),),
         ),
         title: const Text('Create Account'),
       ),
