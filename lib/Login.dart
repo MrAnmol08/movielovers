@@ -19,6 +19,8 @@ class login extends StatefulWidget {
 // ignore: camel_case_types
 class _loginState extends State<login> {
 
+ bool passwordObscured = true;
+
   //Text controller
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -93,6 +95,7 @@ class _loginState extends State<login> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: TextField(
+                      obscureText: passwordObscured,
                       controller: _passwordController,
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -106,8 +109,22 @@ class _loginState extends State<login> {
                         hintText: 'Password',
                         fillColor: Color.fromARGB(255, 253, 253, 253),
                         filled: true,
-                         prefixIcon: Icon(Icons.lock),
+                         prefixIcon: Icon(
+                          Icons.lock),
+                        suffixIcon: GestureDetector(
+                          onTap: (){
+                            
+                            setState(() {
+                              passwordObscured = !passwordObscured;
+                            });
+                          } ,
+                          child: Icon(
+                            passwordObscured ?
+                            Icons.visibility_off : Icons.visibility,
+                             //color: Colors.grey,
+                             )), 
                       ),
+                    
                     ),
                   ),
             
