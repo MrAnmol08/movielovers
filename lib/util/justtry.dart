@@ -1,14 +1,14 @@
-// ignore_for_file: prefer_const_constructors
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-//import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-//import 'package:google_nav_bar/google_nav_bar.dart';
-//import 'package:movielovers/Login.dart';
-//import 'package:movielovers/Login.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:movielovers/Login.dart';
-import 'package:movielovers/util/movielist.dart';
+// // ignore_for_file: prefer_const_constructors
+// import 'package:carousel_slider/carousel_slider.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// //import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:flutter/material.dart';
+// //import 'package:google_nav_bar/google_nav_bar.dart';
+// //import 'package:movielovers/Login.dart';
+// //import 'package:movielovers/Login.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:movielovers/Login.dart';
+// import 'package:movielovers/util/movielist.dart';
 
 // class HomePage extends StatefulWidget {
 //   const HomePage({super.key});
@@ -34,10 +34,10 @@ import 'package:movielovers/util/movielist.dart';
 //         if (snapshot.hasData){
 //           return HomePage();
 //         } else {
-//           return login(showRegisterPage: () {  },);
+//           return login();
 //         }
 //       },
-    
+//     ),
     
 //       appBar: AppBar(
 //         centerTitle: true,
@@ -57,7 +57,16 @@ import 'package:movielovers/util/movielist.dart';
 //           ) 
 //         ],
 //       ),
-//       body: Column(
+
+
+
+          
+//       //backgroundColor: Colors.grey[300], 
+      
+//       // ignore: dead_code
+//       //@override
+//       // Widget build (BuildContext){
+//         body: Column(
 //         children: [
             
 //               Stack(
@@ -147,7 +156,37 @@ import 'package:movielovers/util/movielist.dart';
 
 //                   ),
 //                    ),
+//                   // SizedBox(height: 5),
                  
+//                   //   Row(
+//                   //     children: [
+//                   //       Column(
+//                   //         children: [
+//                   //           Container(
+//                   //             width: 100,
+//                   //             height: 100,
+//                   //             padding: EdgeInsets.all(10),
+                              
+//                   //             decoration: BoxDecoration(
+//                   //              color: Colors.grey,
+//                   //              borderRadius: BorderRadius.circular(15),
+//                   //             ),
+//                   //             // child: Center(
+//                   //             //   child: Image.asset(
+//                   //             //     'assets/images/ajkb.jpg',
+                               
+//                   //             //   ),
+//                   //             // ),
+//                   //           ),
+//                            // SizedBox(height:10),
+//                         // Text(
+//                         //   'Ainaa Jhyal Ko Putali',
+//                         //   style: GoogleFonts.poppins(
+//                         //     fontSize: 12,
+//                         //     fontWeight: FontWeight.bold,
+//                         //     color: Colors.grey[500],
+//                         //   ),
+//                         // ),
 
 //                         SingleChildScrollView(
 //                           scrollDirection: Axis.horizontal,
@@ -203,7 +242,6 @@ import 'package:movielovers/util/movielist.dart';
 //         ],
       
 //         ) 
-//     )
 //     );
         
     
