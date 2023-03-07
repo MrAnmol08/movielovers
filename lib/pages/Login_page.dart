@@ -1,13 +1,15 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:movielovers/pages/Register_page.dart';
 //import 'package:movielovers/RegisterPage.dart';
 
 
 // ignore: camel_case_types
 class login extends StatefulWidget {
-  const login({Key? key}) : super(key: key);
+  final VoidCallback showRegisterPage;
+  const login({Key? key,required this.showRegisterPage}) : super(key: key);
 
   // final VoidCallback showRegisterPage;
   // const login({Key? key, required this.showRegisterPage}): super(key: key);
@@ -52,7 +54,6 @@ class _loginState extends State<login> {
         
         
         child: Center(
-          //child: SingleChildScrollView(
             child: SingleChildScrollView(
               child: Column( 
                 
@@ -84,7 +85,9 @@ class _loginState extends State<login> {
                         hintText: 'Email',
                         fillColor: Color.fromARGB(255, 253, 253, 253),
                         filled: true,
-                         prefixIcon: Icon(Icons.email),
+                         prefixIcon: Icon(Icons.email,
+                         color: Colors.grey,
+                         ),
                       ),
                     ),
                   ),
@@ -106,22 +109,25 @@ class _loginState extends State<login> {
                           borderSide: BorderSide(color: Colors.black),
                           borderRadius: BorderRadius.circular(12),
                         ),
+
                         hintText: 'Password',
                         fillColor: Color.fromARGB(255, 253, 253, 253),
                         filled: true,
                          prefixIcon: Icon(
-                          Icons.lock),
+                          Icons.lock,
+                          color: Colors.grey,),
                         suffixIcon: GestureDetector(
                           onTap: (){
                             
                             setState(() {
                               passwordObscured = !passwordObscured;
+                              //Colors.black;
                             });
                           } ,
                           child: Icon(
                             passwordObscured ?
                             Icons.visibility_off : Icons.visibility,
-                             //color: Colors.grey,
+                             color: Color.fromARGB(255, 140, 134, 134),
                              )), 
                       ),
                     
@@ -176,18 +182,25 @@ class _loginState extends State<login> {
                       
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('Not a member?',textAlign: TextAlign.end, style:TextStyle(color:Color.fromARGB(255, 1, 4, 12),
+                    children: [
+                      Text(
+                        'Not a member?',
+                        textAlign: TextAlign.end,
+                         style:TextStyle(color:Color.fromARGB(255, 1, 4, 12),
                       fontWeight: FontWeight.bold
                       ),
-                      ), 
-                      
-                      
-                        
-                          
-                        
-                      
-              
+                      ),
+
+                      GestureDetector(
+                        onTap: widget.showRegisterPage,
+                        child: Text(
+                          ' Register',
+                          textAlign: TextAlign.end,
+                           style:TextStyle(color:Color.fromARGB(255, 4, 136, 251),
+                           fontWeight: FontWeight.bold
+                           ),
+                        ),
+                      ),
                     ],
                   ),
                       

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:movielovers/navbar.dart';
 //import 'package:movielovers/you.dart';
 
 class Youpage extends StatefulWidget {
@@ -15,19 +16,37 @@ class _YoupageState extends State<Youpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            
-          Navigator.pop(context);
-          },
-        ),
-        title: const Text(
-          "Settings",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
+        backgroundColor: Colors.transparent,
+         elevation: 0,
+         shadowColor: Colors.grey.withOpacity(1),
+        bottom: PreferredSize(
+           // ignore: prefer_const_constructors
+           preferredSize: Size.fromHeight(4),
+           child: Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey.withOpacity(0.5),
+                  width: 1,
+                )
+              )
+            ),
+           ),
+           ),
+           leading: IconButton(
+          icon: const Icon(Icons.arrow_back,
+          color: Colors.black,
           ),
+          onPressed: () => Navigator.pop(context,
+          // MaterialPageRoute(builder: (context) =>  HomePage( () {  },)),
+          ),
+          //  MaterialPageRoute(builder: (context) =>  login(showRegisterPage: () {  },)),
+           
+        ),
+        title: const Text('Create Account',
+        style: TextStyle(color: Colors.black,
+        fontWeight: FontWeight.bold,
+        ),
         ),
       ),
       body: Center(
