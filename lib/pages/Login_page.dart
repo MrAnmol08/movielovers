@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movielovers/pages/Register_page.dart';
+import 'package:movielovers/pages/Forgot_Password.dart';
 //import 'package:movielovers/RegisterPage.dart';
 
 
@@ -28,10 +29,22 @@ class _loginState extends State<login> {
   final _passwordController = TextEditingController();
 
   Future signIn() async{
+
+    // loading circle
+    // showDialog(
+    //   context: context, 
+    //   builder: (context){
+    //     return Center(child: CircularProgressIndicator());
+    //   },
+    //   );
+
+
     await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: _emailController.text.trim(), 
       password: _passwordController.text.trim(),
       );
+
+      //Navigator.of(context).pop();
   }
 
   @override
@@ -135,25 +148,28 @@ class _loginState extends State<login> {
                   ),
             
                  //Forgot Password
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 3),
                    Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: const [
-                        Text(
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: TextButton(onPressed: (){
+                        Navigator.push(context,
+                         MaterialPageRoute(builder:(context) => ForgotPassword()));
+                      },
+                        child: Text(
                           'Forgot Password?',
                           style:TextStyle(color: Color.fromARGB(255, 4, 136, 251),
                           fontWeight: FontWeight.bold),
                         ),
-                      ],
+                      ),
                     ),
                   ),
                   
                      
                   
                   //Sign In Button
-                   const SizedBox(height: 15),
+                   const SizedBox(height: 8),
                   Padding(
                     
                     padding: const EdgeInsets.symmetric(horizontal: 22),
