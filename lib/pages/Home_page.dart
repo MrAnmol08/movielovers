@@ -211,8 +211,6 @@ class _HomePageState extends State<HomePage> {
         
 
 
-        ),
-      ),
       
       
                       
@@ -235,12 +233,9 @@ class _HomePageState extends State<HomePage> {
         currentIndex: navindex,
         items: const [ 
           BottomNavigationBarItem(
-            //backgroundColor: Color.fromARGB(255, 210, 16, 16),
             icon: Icon(Ionicons.home,
-             color: Color.fromARGB(255, 54, 63, 96),
             ),
             label: 'Home',
-            
             
         ),
         BottomNavigationBarItem(
@@ -259,8 +254,6 @@ class _HomePageState extends State<HomePage> {
             label: 'You',
             
         ),
-          
-
       ]),
      
 
