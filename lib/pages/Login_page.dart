@@ -202,7 +202,7 @@ class _loginState extends State<login> {
                       Text(
                         'Not a member?',
                         textAlign: TextAlign.end,
-                         style:TextStyle(color:Color.fromARGB(255, 1, 4, 12),
+                         style:TextStyle(color:Color.fromARGB(255, 54, 63, 96),
                       fontWeight: FontWeight.bold
                       ),
                       ),
