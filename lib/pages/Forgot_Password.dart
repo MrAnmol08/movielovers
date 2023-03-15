@@ -106,7 +106,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     child: GestureDetector(
                       onTap: (){
                         auth.sendPasswordResetEmail(email: _emailController.text.toString()).then((value){
-                          utils().toastMessage('Please check your email for password recovery instructions');
+                          utils().toastMessage('Please check your email for password recovery instructions',);
                           }).onError((error, stackTrace){
                             utils().toastMessage(error.toString());
                           } );
@@ -143,3 +143,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   }
 }
 
+//auth.sendPasswordResetEmail(email: email).then((value){
+                        //   utils().toastMessage('Please check your email for password recovery instructions. ');
+                        // }).onError((error, stackTrace) {
+                        //   utils().toastMessage(error.toString());
+                       // });

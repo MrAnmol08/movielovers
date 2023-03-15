@@ -90,7 +90,7 @@ class _RegisterPageState extends State<RegisterPage> {
            ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back,
-          color: Colors.black,
+          color: Color.fromARGB(255, 54, 63, 96),
           ),
           onPressed: () => Navigator.push(context,
           MaterialPageRoute(builder: (context) =>  login(showRegisterPage: () {  },)),
@@ -99,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
            
         ),
         title: const Text('Create Account',
-        style: TextStyle(color: Colors.black,
+        style: TextStyle(color: Color.fromARGB(255, 54, 63, 96),
         fontWeight: FontWeight.bold,
         ),
         ),
@@ -121,7 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   width: 200,),
           
                   Text('Register below with your details',
-                  style:TextStyle(color:Color.fromARGB(255, 6, 6, 6),
+                  style:TextStyle(color:Color.fromARGB(255, 54, 63, 96),
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                              ),
