@@ -19,27 +19,7 @@ class _ticketState extends State<ticket> {
     return Scaffold(
       appBar: AppBar(title: const Text('Book Ticket'),
       ),
-      // body: Center(
-      //                           child: Column(
-      //                           mainAxisAlignment: MainAxisAlignment.center,
-      //                           children: [
-      //          MaterialButton(onPressed: ()
-      //           {
-      //           FirebaseAuth.instance.signOut();
-      //          },
-      //          color: const Color.fromARGB(255, 241, 24, 8),
-      //          child: const Text('Logout'),
-      //          ),
-              
-      //     ],
-        
+);
 
-
-      //   ),
-      // ),
-
-     
-      
-    );
   }
 }
