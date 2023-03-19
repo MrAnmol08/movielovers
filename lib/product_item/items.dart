@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movielovers/product_item/single_product.dart';
 
 class items extends StatelessWidget {
 
@@ -19,7 +20,6 @@ class items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
      return GridView.count(
       physics: const NeverScrollableScrollPhysics(),
       crossAxisCount: 2,
@@ -45,7 +45,9 @@ class items extends StatelessWidget {
             child: Column(
               children: [
                 InkWell(
-                  onTap: (){},
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SingleProduct(img[i])));
+                  },
                   child: Image.asset("assets/images/${img[i]}.png", 
                    ),
                 ),
