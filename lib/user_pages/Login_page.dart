@@ -2,9 +2,8 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:movielovers/pages/Register_page.dart';
-import 'package:movielovers/pages/Forgot_Password.dart';
-//import 'package:movielovers/RegisterPage.dart';
+import 'package:movielovers/user_pages/Register_page.dart';
+import 'package:movielovers/user_pages/Forgot_Password.dart';
 
 
 // ignore: camel_case_types
@@ -181,7 +180,7 @@ class _loginState extends State<login> {
                         borderRadius: BorderRadius.circular(12) ),
                         
                         child: const Center(
-                          child: Text('SignIn',
+                          child: Text('Login',
                           style: TextStyle(color: Color.fromARGB(255, 247, 247, 247),
                           fontWeight:FontWeight.bold,
                           fontSize: 18, 

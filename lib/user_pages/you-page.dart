@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_fonts/google_fonts.dart';
 //import 'package:movielovers/you.dart';
 
 class Youpage extends StatefulWidget {
@@ -32,37 +33,19 @@ class _YoupageState extends State<Youpage> {
             ),
            ),
            ),
-           leading: IconButton(
-          icon: const Icon(Icons.arrow_back,
-          size: 30,
-          color: Color.fromARGB(255, 54, 63, 96),
-          
+        
+        title: Text('You',
+        style: GoogleFonts.openSans(
+            fontWeight: FontWeight.bold,
+            fontSize: 25,
+            color: Color.fromARGB(255, 54, 63, 96),
           ),
-          onPressed: () => Navigator.pop(context,
-          // MaterialPageRoute(builder: (context) =>  HomePage( () {  },)),
-          ),
-          //  MaterialPageRoute(builder: (context) =>  login(showRegisterPage: () {  },)),
-           
-        ),
-        title: const Text('You',
-        style: TextStyle(color: Color.fromARGB(255, 54, 63, 96),
-        fontWeight: FontWeight.bold,
-        fontSize: 25,
-        ),
         ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            
-            // Text(
-            //   "Logout",
-            //   style: TextStyle(
-            //     fontSize: 24,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            //    ),
                MaterialButton(onPressed: ()
                 {
                 FirebaseAuth.instance.signOut();

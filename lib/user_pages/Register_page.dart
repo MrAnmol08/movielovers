@@ -6,7 +6,7 @@ import 'package:movielovers/Auth/auth_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:ionicons/ionicons.dart';
 
-import 'package:movielovers/pages/Login_page.dart'; 
+import 'package:movielovers/user_pages/Login_page.dart'; 
 
 class RegisterPage extends StatefulWidget {
   final VoidCallback showloginpage;
