@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:movielovers/pages/Home_page.dart';
-import 'package:movielovers/pages/product.dart';
-import 'package:movielovers/pages/ticket.dart';
-import 'package:movielovers/pages/you-page.dart';
+import 'package:movielovers/user_pages/Home_page.dart';
+import 'package:movielovers/product_item/product.dart';
+import 'package:movielovers/user_pages/ticket.dart';
+import 'package:movielovers/user_pages/you-page.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});

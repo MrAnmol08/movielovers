@@ -66,10 +66,16 @@ class _HomePageState extends State<HomePage> {
             CarouselSlider(
               items: imagelist
                   .map(
-                    (item) => Image.asset(
-                      item['image_path'],
-                      fit: BoxFit.cover,
-                      width: double.infinity,
+                    (item) => Container(
+                      padding: EdgeInsets.all(8),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          item['image_path'],
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                        ),
+                      ),
                     ),
                   )
                   .toList(),
@@ -132,7 +138,8 @@ class _HomePageState extends State<HomePage> {
           child: GridView.builder(
             itemCount: 9,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, childAspectRatio: 1 / 1.5),            itemBuilder: (context, index) {
+                crossAxisCount: 3, childAspectRatio: 1 / 1.5),  
+                  itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.all(2.0),
                 child: Container(
