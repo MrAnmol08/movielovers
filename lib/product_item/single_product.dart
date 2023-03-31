@@ -41,13 +41,13 @@ class SingleProduct extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 5),
           Expanded(
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
                 ),
                 color: Color.fromARGB(255, 252, 252, 252),
               ),
@@ -89,11 +89,23 @@ class SingleProduct extends StatelessWidget {
                     thickness: 1,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
-                          'Size: XXL, XL',
+                          'Size: ',
+                          style: GoogleFonts.openSans(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 116, 119, 129),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          'XXL, XL ',
                           style: GoogleFonts.openSans(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
@@ -101,6 +113,7 @@ class SingleProduct extends StatelessWidget {
                           ),
                         ),
                       ),
+                      
                       SizedBox(width: 30),
                       Padding(
                         padding: const EdgeInsets.all(12.0),

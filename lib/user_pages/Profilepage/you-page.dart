@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
-//import 'package:movielovers/you.dart';
+import 'package:movielovers/user_pages/Profilepage/list.dart';
+
 
 class Youpage extends StatefulWidget {
   const Youpage({super.key});
@@ -107,26 +107,17 @@ class _YoupageState extends State<Youpage> {
                  ),
                  ),
                 ),
+                SizedBox(height: 20),
+               Padding( padding: const EdgeInsets.all(8.0), child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [ Icon( Ionicons.settings_sharp, size: 20, color: Color.fromARGB(255, 92, 97, 118), ), SizedBox(width: 8), Text( 'Change Password', style: GoogleFonts.openSans( fontWeight: FontWeight.bold, fontSize: 17, color: Color.fromARGB(255, 54, 63, 96), ), ), SizedBox(width: 140), Icon( Ionicons.chevron_forward_outline, size: 25, color: Color.fromARGB(255, 116, 119, 129), ), ] ), ),
+               Divider(color: Colors.grey),
+                Padding( padding: const EdgeInsets.all(8.0), child: Row( mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [ Icon( Ionicons.reader_outline, size: 20, color: Color.fromARGB(255, 92, 97, 118), ), SizedBox(width: 12), Text( 'Terms & Condition', style: GoogleFonts.openSans( fontWeight: FontWeight.bold, fontSize: 17, color: Color.fromARGB(255, 54, 63, 96), ), ), SizedBox(width: 140), Icon( Ionicons.chevron_forward_outline, size: 25, color: Color.fromARGB(255, 116, 119, 129), ), ] ), ),
+               Divider(color: Colors.grey),
+               Padding( padding: const EdgeInsets.all(8.0), child: Row( children: [ Icon( Ionicons.log_out_outline, size: 20, color: const Color.fromARGB(255, 166, 41, 41), ), SizedBox(width: 12), Text( 'Log Out', style: GoogleFonts.openSans( fontWeight: FontWeight.bold, fontSize: 17, color: Color.fromARGB(255, 54, 63, 96), ), ), SizedBox(width: 240), GestureDetector(onTap: (){  FirebaseAuth.instance.signOut();}, child: Icon( Ionicons.chevron_forward_outline, size: 25, color: Color.fromARGB(255, 116, 119, 129), )), ] ), ),
+               
+
             ],
           ),
-          
-
         ),
-
-
-
-        // child: Column(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //        MaterialButton(onPressed: ()
-        //         {
-        //         FirebaseAuth.instance.signOut();
-        //        },
-        //        color: const Color.fromARGB(255, 241, 24, 8),
-        //        child: const Text('Logout'),
-        //        ),
-        //   ],
-        // ),
       ),
     );  }
 }
