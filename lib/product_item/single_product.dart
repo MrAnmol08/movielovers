@@ -4,35 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 
- class SingleProduct extends StatelessWidget {
+class SingleProduct extends StatelessWidget {
   String img;
   SingleProduct(this.img, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[400],
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        shadowColor: Colors.grey.withOpacity(1),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(4),
-          child: Container(
-            decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(
-              color: Colors.grey.withOpacity(0.5),
-              width: 1,
-            ))),
-          ),
-        ),
+        backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Ionicons.arrow_back_outline),
           color: Color.fromARGB(255, 54, 63, 96),
           iconSize: 30,
           onPressed: () => Navigator.of(context).pop(),
-          ),
-        
+        ),
         title: Text(
           'Item',
           style: GoogleFonts.openSans(
@@ -42,20 +29,157 @@ import 'package:ionicons/ionicons.dart';
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.only(top:30, bottom: 20 ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Image.asset("assets/images/$img.png"),
-                )
-              ],
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            color: Color.fromARGB(255, 255, 255, 255),
+            child: Center(
+              child: Image.asset(
+                "assets/images/$img.png",
+                width: MediaQuery.of(context).size.width / 1.4,
+              ),
             ),
+          ),
+          SizedBox(height: 10),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
+                ),
+                color: Color.fromARGB(255, 252, 252, 252),
+              ),
+              //color: Color.fromARGB(255, 245, 246, 248),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          img,
+                          style: GoogleFonts.openSans(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 85, 93, 117),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          'Movie dialogue tshirt from pashupatiprasad',
+                          style: GoogleFonts.openSans(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 71, 79, 104),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Divider(
+                    color: Color.fromARGB(255, 103, 96, 96),
+                    thickness: 1,
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          'Size: XXL, XL',
+                          style: GoogleFonts.openSans(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 71, 79, 104),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 30),
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          'Colour: White',
+                          style: GoogleFonts.openSans(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 71, 79, 104),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Divider(
+                    color: Color.fromARGB(255, 103, 96, 96),
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          'Price: Npr. 685',
+                          style: GoogleFonts.openSans(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 254, 21, 5),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Divider(
+                    color: Color.fromARGB(255, 103, 96, 96),
+                    thickness: 1,
+                  ),
+                  SizedBox(height: 15),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TextButton(onPressed: (){},
+                      style: ButtonStyle(
+                        backgroundColor:MaterialStateProperty.all<Color>(Color.fromARGB(255, 254, 21, 5)),
+                        minimumSize: MaterialStateProperty.all<Size>(Size(150, 50)),
+                      ),
+                       child: Text(
+                        'Add to cart',
+                        style: GoogleFonts.openSans(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: Color.fromARGB(255, 248, 245, 245),
+                              ),
+                       )),
+
+                       SizedBox(width: 10),
+                       TextButton(onPressed: (){},
+                      style: ButtonStyle(
+                        backgroundColor:MaterialStateProperty.all<Color>(Color.fromARGB(255, 122, 37, 112)),
+                        minimumSize: MaterialStateProperty.all<Size>(Size(150, 50)),
+                      ),
+                      
+                       child: Text(
+                        'Buy Now',
+                        style: GoogleFonts.openSans(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                                color: Color.fromARGB(255, 246, 243, 247),
+                              ),
+                        
+
+                       )),
+                    ],
+                  ),
+                ],
+              ),
             ),
-            ),
+          ),
+        ],
       ),
     );
   }
