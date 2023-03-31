@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -73,10 +75,38 @@ class _YoupageState extends State<Youpage> {
               Text(
                 user?.displayName ?? ''),
               Text(
-                user?.email ?? ''
+                user?.email ?? '',
+                style: GoogleFonts.openSans(
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+            color: Color.fromARGB(255, 54, 63, 96),
+          ),
               ),
-              SizedBox(height: 10),
-              Divider(color: Colors.white),
+              const SizedBox(height: 2),
+              const Divider(color: Colors.white),
+              const SizedBox(height: 2),
+              SizedBox(
+                width: 200,
+                child: ElevatedButton(onPressed: (){},
+                style: ButtonStyle(
+                  backgroundColor:MaterialStateProperty.all<Color>(const Color.fromARGB(255, 241, 24, 8),),
+                  shape: MaterialStateProperty.all<OutlinedBorder>(
+                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    
+                    ),
+                    ),
+                
+                 
+                
+                 child:  Text('Edit Profile',
+                 style: GoogleFonts.openSans(
+                   fontWeight: FontWeight.bold,
+                   fontSize: 15,
+                   color: Color.fromARGB(255, 247, 248, 249),
+          ),
+                 ),
+                 ),
+                ),
             ],
           ),
           
