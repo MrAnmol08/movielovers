@@ -31,7 +31,7 @@ class _NavbarState extends State<Navbar> {
               fontWeight: FontWeight.bold),
           type: BottomNavigationBarType.fixed,
           currentIndex: navindex,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon( Ionicons.home),
               label: 'Home',
