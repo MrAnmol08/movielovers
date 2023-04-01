@@ -4,8 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movielovers/Auth/auth_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:ionicons/ionicons.dart';
-
+import 'package:movielovers/Auth/database_service.dart';
 import 'package:movielovers/user_pages/Login_page.dart'; 
 
 class RegisterPage extends StatefulWidget {
@@ -27,7 +26,10 @@ class _RegisterPageState extends State<RegisterPage> {
   bool confirmpasswordObscured = true;
 
   final _formKey = GlobalKey<FormState>();
-  late String _name, _email, _password;
+  late String fullname = " ";
+   String email = ""; 
+   String password = "";
+  //  AuthService authService = AuthService();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
@@ -42,23 +44,41 @@ class _RegisterPageState extends State<RegisterPage> {
     super.dispose();
   }
 
-  Future signUp() async {
-    if (passwordConfirmed()){
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      //name: _nameController.text.trim(),
-      email: _emailController.text.trim(), 
-      password: _passwordController.text.trim(),
-      );
-
-      addUserDetails(
-        _nameController.text.trim(),
-        _emailController.text.trim(),
-      );
+  Future registerUserwithEmailandPassword(
+    String fullname, String email, String password) async {
+      try {
+        User user = (await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email, password: password ))
+          .user!;
+          if(user!=null){
+            //call our database service to update the user data
+            await DatabaseService(uid: user.uid).updateUserData(fullname, email);
+            return true;
+          }
+      } on FirebaseAuthException catch (e){
+        print(e);
+        return e; 
+      }
 
     }
+
+  // Future signUp() async {
+  //   if (passwordConfirmed()){
+  //     User user = (await FirebaseAuth.instance.createUserWithEmailAndPassword(
+  //     //fullname: _nameController.text.trim(),
+  //     email: _emailController.text.trim(), 
+  //     password: _passwordController.text.trim(),
+  //     )).user(e);
+
+  //     addUserDetails(
+  //       _nameController.text.trim(),
+  //       _emailController.text.trim(),
+  //     );
+
+  //   }
     
     
-  }
+  // }
 
   bool passwordConfirmed(){
     if (_passwordController.text.trim() == _confirmpasswordController.text.trim()){
@@ -69,15 +89,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
   }
 
-  Future addUserDetails(
-    String name,
-    String email,
-  ) async {
-    await FirebaseFirestore.instance.collection('users').add({
-      'name' : name,
-      'email' : email,
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -284,7 +295,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 22),
                     child: GestureDetector(
-                      onTap: signUp,
+                      //onTap: signUp,
                       child: Container(
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(color: const Color.fromARGB(255, 241, 24, 8),
