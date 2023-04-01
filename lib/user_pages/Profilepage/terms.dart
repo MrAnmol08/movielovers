@@ -18,7 +18,9 @@ class _TermState extends State<Term> {
   Widget build(BuildContext context) {
     return Scaffold(
        appBar: AppBar(
-        leading: IconButton(onPressed:(){}, 
+        leading: IconButton(onPressed: () {
+            Navigator.pop(context);
+          }, 
         icon:const  Icon(Ionicons.arrow_back_sharp), 
         color:const Color.fromARGB(255, 54, 63, 96), ),
         backgroundColor: Colors.transparent,

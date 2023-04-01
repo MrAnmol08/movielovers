@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,18 +19,29 @@ class Youpage extends StatefulWidget {
 class _YoupageState extends State<Youpage> {
   final user = FirebaseAuth.instance.currentUser;
   String? userName;
+  
+     Future<void> _getUserDetails() async {
+    String? uid = FirebaseAuth.instance.currentUser?.uid;
+    print(uid);
+    DocumentSnapshot doc = await FirebaseFirestore.instance.collection('users').doc(uid).get();
+    final docRef = FirebaseFirestore.instance.collection("users").doc(uid);
+    docRef.get().then(
+      (DocumentSnapshot doc) {
+        final data = doc.data() as Map<String, dynamic>;
+        userName = data['firstName'];
+       print("userName" + userName!);
+      //  print("LastName" + lastName!);
+
+      },
+      onError: (e) => print("Error getting document: $e"),
+    );
 
   @override
   void initState() {
     super.initState();
-    //getUserData();
+    _getUserDetails();
 
-    Future<void> getUserData() async {
-      final firebaseUser = await FirebaseAuth.instance.currentUser!;
-      setState(() {
-        userName = firebaseUser.displayName;
-      });
-    }
+  }
     
   }
   @override
@@ -100,12 +112,15 @@ class _YoupageState extends State<Youpage> {
                 
                  
                 
-                 child:  Text('Edit Profile',
-                 style: GoogleFonts.openSans(
-                   fontWeight: FontWeight.bold,
-                   fontSize: 15,
-                   color: Color.fromARGB(255, 247, 248, 249),
-          ),
+                 child:  GestureDetector(
+                  onTap: _getUserDetails,
+                   child: Text('Edit Profile',
+                   style: GoogleFonts.openSans(
+                     fontWeight: FontWeight.bold,
+                     fontSize: 15,
+                     color: Color.fromARGB(255, 247, 248, 249),
+                           ),
+                   ),
                  ),
                  ),
                 ),
