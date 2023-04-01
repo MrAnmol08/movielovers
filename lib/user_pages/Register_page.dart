@@ -43,7 +43,8 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future signUp() async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    if (passwordConfirmed()){
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
       //name: _nameController.text.trim(),
       email: _emailController.text.trim(), 
       password: _passwordController.text.trim(),
@@ -53,7 +54,19 @@ class _RegisterPageState extends State<RegisterPage> {
         _nameController.text.trim(),
         _emailController.text.trim(),
       );
+
+    }
     
+    
+  }
+
+  bool passwordConfirmed(){
+    if (_passwordController.text.trim() == _confirmpasswordController.text.trim()){
+      return true;
+    } else {
+      return false;
+    }
+
   }
 
   Future addUserDetails(
