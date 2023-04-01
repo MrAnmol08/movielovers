@@ -54,66 +54,8 @@ class _ListState extends State<List> {
       
       ),
     );
-  //    return ListTile(
-  //     leading: Container(
-  //       width: 50, height: 40,
-  //       decoration: BoxDecoration(
-  //         borderRadius: BorderRadius.circular(100),
-  //         color: const Color.fromARGB(255, 252, 251, 251),
-  //       ),
-  //       child: const Icon(
-  //               Ionicons.settings_sharp,
-  //               size: 20,
-  //               color: Color.fromARGB(255, 54, 63, 96),
-  //             ),
-  //     ),
-  //     title: SizedBox(
-  //   width: double.infinity, // Set the width of the box to fill the available space
-  //   child: Row(
-  //     children: [
-  //       const SizedBox(width: 1), // Add some padding between the icon and text
-  //       Text(
-  //         'Change Password',
-  //         style: GoogleFonts.openSans(
-  //           fontWeight: FontWeight.bold,
-  //           fontSize: 18,
-  //           color: Color.fromARGB(255, 54, 63, 96),
-  //         ),
-  //       ),
-  //     ],
-  //   ),
-  // )
-  //     // title: Text('Change Password',
-  //     // style: GoogleFonts.openSans(
-  //     //       fontWeight: FontWeight.bold,
-  //     //       fontSize: 20,
-  //     //       color: Color.fromARGB(255, 54, 63, 96),
-  //     //     ),
-  //     // ),
-      
-  //   );
+  
   }
 }
 
 
-// class List extends StatelessWidget {
-//   const List({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListTile(
-//       leading: Container(
-//         width: 30, height: 30,
-//         decoration: BoxDecoration(
-//           borderRadius: BorderRadius.circular(100),
-//         ),
-//         child: const Icon(
-//                 Ionicons.settings,
-//                 color: Color.fromARGB(255, 54, 63, 96),
-//               ),
-              
-
-//       ),
-//     );
-//   }
-// }
