@@ -46,6 +46,7 @@ dependencies:
   flutter_icons: ^1.1.0
   book_my_seat: ^1.0.1
   flutter_svg: ^1.1.6
+  khalti_flutter: ^2.1.0
  
 
 dev_dependencies:

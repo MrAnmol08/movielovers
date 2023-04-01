@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
-//import 'package:movielovers/Auth/auth_page.dart';
-
-//import 'package:movielovers/HomePage.dart';
-//import 'package:movielovers/Login.dart';
-//import 'package:movielovers/Login.dart';
-//import 'package:movielovers/HomePage.dart';
-//import 'package:movielovers/Login.dart';
-//import 'package:movielovers/RegisterPage.dart';
-//import 'package:movielovers/RegisterPage.dart';
-// ignore: unused_import
-//import 'package:movielovers/SplashScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 //import 'package:movielovers/home.dart';
 import 'Auth/loginfirebaseauth.dart';
+
 
 
 void  main() async {

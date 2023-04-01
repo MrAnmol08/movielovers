@@ -1,12 +1,15 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:khalti_flutter/khalti_flutter.dart';
 
 class SingleProduct extends StatelessWidget {
   String img;
   SingleProduct(this.img, {Key? key}) : super(key: key);
+
+  //khalti refrence id
+  String refrenceId = "";
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +173,9 @@ class SingleProduct extends StatelessWidget {
                        )),
 
                        SizedBox(width: 10),
-                       TextButton(onPressed: (){},
+                       TextButton(onPressed: (){
+                        payWithKhalti();
+                       },
                       style: ButtonStyle(
                         backgroundColor:MaterialStateProperty.all<Color>(Color.fromARGB(255, 122, 37, 112)),
                         minimumSize: MaterialStateProperty.all<Size>(Size(150, 50)),
@@ -196,4 +201,46 @@ class SingleProduct extends StatelessWidget {
       ),
     );
   }
+  
+ 
+  payWithKhalti() {
+    var pay = KhaltiScope.of(context).pay(
+      config: PaymentConfig(
+        amount: 1000, //in paisa
+        productIdentity: 'Product Id',
+        productName: 'Product Name',
+        mobileReadOnly: false,
+      ),
+      preferences: [
+        PaymentPreference.khalti,
+        
+      ],
+      onSuccess: onSuccess,
+      onFailure: onFailure,
+      onCancel: onCancel,
+    );
+  }
+
+  void onSuccess(PaymentSuccessModel success){
+    showDialog(context: context, builder: (context){
+      return AlertDialog(title: Text('Payment Successful'),
+      actions: [
+        SimpleDialogOption(child: const Text('OK'),
+        onPressed: (){
+          Navigator.pop(context);
+        },
+        ),
+      ],
+      );
+    });
+  }
+
+  void onFailure(PaymentFailureModel failure){
+    debugPrint(failure.toString());
+  }
+
+  void onCancel(){
+    debugPrint("Cancelled");
+  }
+
 }
