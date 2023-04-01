@@ -44,8 +44,8 @@ class _ChooseSeatState extends State<ChooseSeat> {
       };
       //this format object for every seat has
       // setState(() {
-        data.add(objectData);
-        //add object to list
+      data.add(objectData);
+      //add object to list
       // });
     }
     // print(data);
@@ -78,7 +78,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
         });
       }
     }
-     for (final seat in listSeatRight) {
+    for (final seat in listSeatRight) {
       if (seat["isSelected"]) {
         setState(() {
           seat["isBooked"] = true;
@@ -94,24 +94,23 @@ class _ChooseSeatState extends State<ChooseSeat> {
       appBar: AppBar(
         // leading: IconButton(onPressed:(){}, icon:const  Icon(Ionicons.arrow_back_sharp), color:const Color.fromARGB(255, 54, 63, 96), ),
         backgroundColor: Colors.transparent,
-         elevation: 0,
+        elevation: 0,
         bottom: PreferredSize(
-           // ignore: prefer_const_constructors
-           preferredSize: Size.fromHeight(4),
-           child: Container(
+          // ignore: prefer_const_constructors
+          preferredSize: Size.fromHeight(4),
+          child: Container(
             decoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: Colors.grey.withOpacity(0.5),
-                  width: 1,
-                )
-              )
-            ),
-           ),
-           ),
-        
-        title: Text('Ticket',
-        style: GoogleFonts.openSans(
+                border: Border(
+                    bottom: BorderSide(
+              color: Colors.grey.withOpacity(0.5),
+              width: 1,
+            ))),
+          ),
+        ),
+
+        title: Text(
+          'Ticket',
+          style: GoogleFonts.openSans(
             fontWeight: FontWeight.bold,
             fontSize: 25,
             color: const Color.fromARGB(255, 54, 63, 96),
@@ -120,17 +119,41 @@ class _ChooseSeatState extends State<ChooseSeat> {
         centerTitle: true,
       ),
       //backgroundColor: Colors.purple,
-      
+
       body: SingleChildScrollView(
-        
         // ignore: sized_box_for_whitespace
         child: Container(
           width: MediaQuery.of(context).size.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Stack(
+                children: [
+                  // ignore: sized_box_for_whitespace
+                  Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Container(
+                      height: 200,
+                      child: Image.asset(
+                        'assets/images/lord.jpg',
+                        fit: BoxFit.fitWidth,
+                        width: double.infinity,
+                        // MediaQuery.of(context).size.width,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 15),
               Container(
-                child: const Text("Screen"),
+                child: Text(
+                  "Front Screen",
+                  style: GoogleFonts.openSans(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: const Color.fromARGB(255, 54, 63, 96),
+                  ),
+                ),
               ),
               const SizedBox(
                 height: 20,
@@ -156,11 +179,10 @@ class _ChooseSeatState extends State<ChooseSeat> {
                               child: Text(
                                 "Booked",
                                 style: GoogleFonts.openSans(
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
-            color: const Color.fromARGB(255, 54, 63, 96),
-          ),
-                                
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                  color: const Color.fromARGB(255, 54, 63, 96),
+                                ),
                               ),
                             ),
                           ],
@@ -181,12 +203,13 @@ class _ChooseSeatState extends State<ChooseSeat> {
                             ),
                             Container(
                               margin: const EdgeInsets.only(left: 10),
-                              child: Text("Selected", 
-                              style: GoogleFonts.openSans(
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
-            color: const Color.fromARGB(255, 54, 63, 96),
-          ),
+                              child: Text(
+                                "Selected",
+                                style: GoogleFonts.openSans(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                  color: const Color.fromARGB(255, 54, 63, 96),
+                                ),
                               ),
                             ),
                           ],
@@ -210,12 +233,13 @@ class _ChooseSeatState extends State<ChooseSeat> {
                             ),
                             Container(
                               margin: const EdgeInsets.only(left: 10),
-                              child: Text("available",
-                              style: GoogleFonts.openSans(
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
-            color: const Color.fromARGB(255, 54, 63, 96),
-          ),
+                              child: Text(
+                                "available",
+                                style: GoogleFonts.openSans(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                  color: const Color.fromARGB(255, 54, 63, 96),
+                                ),
                               ),
                             ),
                           ],
@@ -252,21 +276,24 @@ class _ChooseSeatState extends State<ChooseSeat> {
               const SizedBox(
                 height: 20,
               ),
-              TextButton(onPressed: (){ 
-                setSelectedToBooked();
-              },
-                      style: ButtonStyle(
-                        backgroundColor:MaterialStateProperty.all<Color>(const Color.fromARGB(255, 122, 37, 112)),
-                        minimumSize: MaterialStateProperty.all<Size>(const Size(150, 50)),
-                      ),
-                       child: Text(
-                        'Book',
-                        style: GoogleFonts.openSans(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: const Color.fromARGB(255, 248, 245, 245),
-                              ),
-                       )),
+              TextButton(
+                  onPressed: () {
+                    setSelectedToBooked();
+                  },
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        const Color.fromARGB(255, 122, 37, 112)),
+                    minimumSize:
+                        MaterialStateProperty.all<Size>(const Size(150, 50)),
+                  ),
+                  child: Text(
+                    'Book',
+                    style: GoogleFonts.openSans(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: const Color.fromARGB(255, 248, 245, 245),
+                    ),
+                  )),
               // ElevatedButton(
               //   onPressed: () {
               //     setSelectedToBooked();
