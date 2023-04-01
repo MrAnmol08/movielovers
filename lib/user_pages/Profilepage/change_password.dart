@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movielovers/user_pages/Profilepage/you-page.dart';
+import 'package:movielovers/util/navbar.dart';
 import 'package:movielovers/util/toast.dart';
 
 class ChangePassword extends StatefulWidget {
@@ -14,10 +15,23 @@ class ChangePassword extends StatefulWidget {
 }
 
 class _ChangePasswordState extends State<ChangePassword> {
-  final _emailController = TextEditingController();
   final auth = FirebaseAuth.instance;
+  final User = FirebaseAuth.instance.currentUser;
   bool passwordObscured = true;
-  final _passwordController = TextEditingController();
+  final _oldpasswordController = TextEditingController();
+  final _newpasswordController = TextEditingController();
+
+  passwordchange(email,oldPassword,newPassword) async {
+    var cred = EmailAuthProvider.credential(email: email, password: oldPassword);
+    await User!.reauthenticateWithCredential(cred).then((value) {
+      User!.updatePassword(newPassword);
+    }).catchError((error){
+      print(error.toString());
+
+    });
+
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +57,9 @@ class _ChangePasswordState extends State<ChangePassword> {
             size: 30,
             color: Color.fromARGB(255, 44, 54, 87),
           ),
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Youpage()),
-          ),
+          onPressed: () {
+            Navigator.pop(context);
+          } 
         ),
         title: const Text(
           'Change Password',
@@ -105,7 +118,7 @@ class _ChangePasswordState extends State<ChangePassword> {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: TextField(
                 obscureText: passwordObscured,
-                controller: _passwordController,
+                controller: _oldpasswordController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
@@ -144,7 +157,7 @@ class _ChangePasswordState extends State<ChangePassword> {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: TextField(
                 obscureText: passwordObscured,
-                controller: _passwordController,
+                controller: _newpasswordController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
@@ -176,62 +189,52 @@ class _ChangePasswordState extends State<ChangePassword> {
                 ),
               ),
             ),
-            SizedBox(height: 15),
+//             SizedBox(height: 15),
 
-// This section is for confirm password
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: TextField(
-                obscureText: passwordObscured,
-                controller: _passwordController,
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  hintText: ' Confirm Password',
-                  fillColor: Color.fromARGB(255, 253, 253, 253),
-                  filled: true,
-                  prefixIcon: Icon(
-                    Icons.lock,
-                    color: Colors.grey,
-                  ),
-                  suffixIcon: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          passwordObscured = !passwordObscured;
-                        });
-                      },
-                      child: Icon(
-                        passwordObscured
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                        color: Colors.grey,
-                        //color: Colors.grey,
-                      )),
-                ),
-              ),
-            ),
+// // This section is for confirm password
+//             Padding(
+//               padding: const EdgeInsets.symmetric(horizontal: 20.0),
+//               child: TextField(
+//                 obscureText: passwordObscured,
+//                 controller: _passwordController,
+//                 decoration: InputDecoration(
+//                   enabledBorder: OutlineInputBorder(
+//                     borderSide: BorderSide(color: Colors.grey),
+//                     borderRadius: BorderRadius.circular(12),
+//                   ),
+//                   focusedBorder: OutlineInputBorder(
+//                     borderSide: BorderSide(color: Colors.black),
+//                     borderRadius: BorderRadius.circular(12),
+//                   ),
+//                   hintText: ' Confirm Password',
+//                   fillColor: Color.fromARGB(255, 253, 253, 253),
+//                   filled: true,
+//                   prefixIcon: Icon(
+//                     Icons.lock,
+//                     color: Colors.grey,
+//                   ),
+//                   suffixIcon: GestureDetector(
+//                       onTap: () {
+//                         setState(() {
+//                           passwordObscured = !passwordObscured;
+//                         });
+//                       },
+//                       child: Icon(
+//                         passwordObscured
+//                             ? Icons.visibility_off
+//                             : Icons.visibility,
+//                         color: Colors.grey,
+//                         //color: Colors.grey,
+//                       )),
+//                 ),
+//               ),
+//             ),
 
             SizedBox(height: 13),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22),
               child: GestureDetector(
-                onTap: () {
-                  auth
-                      .sendPasswordResetEmail(
-                          email: _emailController.text.toString())
-                      .then((value) {
-                    utils().toastMessage(
-                      'Please check your email for password recovery instructions',
-                    );
-                  }).onError((error, stackTrace) {
-                    utils().toastMessage(error.toString());
-                  });
+                onTap: (){
                 },
                 child: Container(
                   padding: const EdgeInsets.all(15),
