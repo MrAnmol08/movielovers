@@ -11,14 +11,11 @@ void  main() async {
   runApp(const MyApp() );
 }
 
-
-
 //void main() => runApp(const SplashScreen());
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
- 
-    @override
+  @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -29,11 +26,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// class SplashScreen extends StatelessWidget {
-//   const SplashScreen({Key? key}) : super(key: key);
-
-  
-  
-  //}
-//}
