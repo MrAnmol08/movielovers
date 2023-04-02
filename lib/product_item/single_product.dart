@@ -220,27 +220,3 @@ class SingleProduct extends StatelessWidget {
       onCancel: onCancel,
     );
   }
-
-  void onSuccess(PaymentSuccessModel success){
-    showDialog(context: context, builder: (context){
-      return AlertDialog(title: Text('Payment Successful'),
-      actions: [
-        SimpleDialogOption(child: const Text('OK'),
-        onPressed: (){
-          Navigator.pop(context);
-        },
-        ),
-      ],
-      );
-    });
-  }
-
-  void onFailure(PaymentFailureModel failure){
-    debugPrint(failure.toString());
-  }
-
-  void onCancel(){
-    debugPrint("Cancelled");
-  }
-
-}
