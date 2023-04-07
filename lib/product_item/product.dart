@@ -41,7 +41,6 @@ class _ProductState extends State<Product> {
             color: Color.fromARGB(255, 54, 63, 96),
           ),
         ),
-        
         actions: [
           IconButton(
               onPressed: () {},
@@ -51,12 +50,10 @@ class _ProductState extends State<Product> {
                ))
         ],
       ),
-      
       body: SingleChildScrollView(
         child: Column(
           children: [
             items(),
-            
           ],
           ),
       ),
