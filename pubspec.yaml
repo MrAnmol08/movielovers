@@ -40,10 +40,8 @@ dependencies:
   firebase_auth: ^4.2.5
   firebase_core: ^2.4.1
   carousel_slider: ^4.2.1
-  font_awesome_flutter: ^10.4.0
   ionicons: ^0.1.2
   fluttertoast: ^8.2.1
-  flutter_icons: ^1.1.0
   book_my_seat: ^1.0.1
   flutter_svg: ^1.1.6
   khalti_flutter: ^2.1.0
