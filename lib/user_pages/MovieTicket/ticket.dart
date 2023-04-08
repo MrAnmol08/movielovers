@@ -334,7 +334,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
                 height: 20,
                 decoration: BoxDecoration(
                   color: dataSeat[index]["isBooked"]
-                      ? Colors.grey
+                      ? const Color.fromARGB(255, 166, 41, 41)
                       : dataSeat[index]["isSelected"]
                           ? const Color.fromARGB(255, 29, 161, 56)
                           : Colors.transparent,

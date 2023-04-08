@@ -1,14 +1,15 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-//import 'package:movielovers/home.dart';
+import 'package:khalti_flutter/khalti_flutter.dart';
+import 'package:movielovers/product_item/cart.dart';
+import 'package:provider/provider.dart';
 import 'Auth/loginfirebaseauth.dart';
 
-
-
-void  main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp() );
+  runApp(const MyApp());
 }
 
 //void main() => runApp(const SplashScreen());
@@ -17,12 +18,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Movie Lovers',
-      home: MainPage(),
-      
-     
+    return ChangeNotifierProvider(
+      create:(context) => cart(),
+      child: KhaltiScope(
+          publicKey: "test_public_key_a451336c859c4556b36ce906655d96a2",
+          builder: (context, navKey) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Movie Lovers',
+              home: MainPage(),
+              navigatorKey: navKey,
+              localizationsDelegates: const [
+                KhaltiLocalizations.delegate
+              ],
+            );
+          }),
     );
   }
 }

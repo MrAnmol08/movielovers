@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:movielovers/user_pages/Register_page.dart';
 import 'package:movielovers/user_pages/Forgot_Password.dart';
 
@@ -75,7 +76,6 @@ class _loginState extends State<login> {
             
                   SizedBox(height: 5,),
                   Image.asset('assets/images/login.gif',
-                  
                   height: 200,
                   width: 200,),
                   const SizedBox(height: 40,),
