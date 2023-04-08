@@ -45,6 +45,8 @@ dependencies:
   book_my_seat: ^1.0.1
   flutter_svg: ^1.1.6
   khalti_flutter: ^2.1.0
+  lottie: ^1.4.2
+  provider: 
  
 
 dev_dependencies:
