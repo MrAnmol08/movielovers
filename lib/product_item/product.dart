@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:movielovers/product_item/cart.dart';
+import 'package:movielovers/product_item/Cart/cart.dart';
+import 'package:movielovers/product_item/cart_model.dart';
 import 'package:movielovers/product_item/items.dart';
 import 'package:provider/provider.dart';
 
@@ -51,10 +52,10 @@ class _ProductState extends State<Product> {
         actions: [
           IconButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => Cart()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Cart()),
+                );
               },
               icon: Icon(
                 Ionicons.cart_outline,
@@ -66,7 +67,7 @@ class _ProductState extends State<Product> {
       body: Column(
         children: [
           Expanded(
-             child: Consumer<cart>(
+             child: Consumer<Cartmodel>(
               builder:(context, value, child) {
               return GridView.builder(
                shrinkWrap: true,
@@ -85,6 +86,11 @@ class _ProductState extends State<Product> {
                   itemSize: value.productItems[index][1],
                   itemPrice: value.productItems[index][2],
                   imagePath: value.productItems[index][3],
+                  onPressed: (){
+                    Provider.of<Cartmodel>(
+                      context, listen: false)
+                    .addItemToCart(index);
+                  } ,
                   );
               });
 

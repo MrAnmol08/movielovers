@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:khalti_flutter/khalti_flutter.dart';
-import 'package:movielovers/product_item/cart.dart';
+import 'package:movielovers/product_item/cart_model.dart';
 import 'package:provider/provider.dart';
 import 'Auth/loginfirebaseauth.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create:(context) => cart(),
+      create:(context) => Cartmodel(),
       child: KhaltiScope(
           publicKey: "test_public_key_a451336c859c4556b36ce906655d96a2",
           builder: (context, navKey) {

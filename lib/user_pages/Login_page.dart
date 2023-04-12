@@ -3,8 +3,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:movielovers/Admin/adminhome.dart';
 import 'package:movielovers/user_pages/Register_page.dart';
 import 'package:movielovers/user_pages/Forgot_Password.dart';
+import 'package:movielovers/util/navbar.dart';
+import 'package:movielovers/util/toast.dart';
 
 
 // ignore: camel_case_types
@@ -27,6 +30,8 @@ class _loginState extends State<login> {
   //Text controller
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  
+  get error => null;
 
   Future signIn() async{
 
@@ -37,12 +42,40 @@ class _loginState extends State<login> {
     //     return Center(child: CircularProgressIndicator());
     //   },
     //   );
-
-
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
+    try{
+       await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: _emailController.text.trim(), 
       password: _passwordController.text.trim(),
       );
+
+      //check if user is an admin
+      if(_emailController.text.trim() == 'admin@gmail.com' && _passwordController.text.trim()=='admin'){
+        //Navigate to the admin page
+        
+        Navigator.pushReplacement(context,
+         MaterialPageRoute(builder: ((context) => AdminHome()),
+         ),
+         );
+      } else {
+        
+        Navigator.pushReplacement(
+          context, MaterialPageRoute(
+            builder: (context) => Navbar()),
+            );
+        //Display an erro message to the user
+        utils().toastMessage('Invalid email or password');
+      }
+    } on FirebaseAuthException catch(e) {
+      if (e.code == 'User-not-found'){
+        utils().toastMessage('Invalid user');
+      } else if (e.code == 'wrong-password'){
+        utils().toastMessage('Something went wrong');
+      }
+    }
+
+
+    
+   
 
       //Navigator.of(context).pop();
   }
@@ -143,7 +176,7 @@ class _loginState extends State<login> {
                              )), 
                       ),
                     
-                    ),
+                    ), 
                   ),
             
                  //Forgot Password
@@ -173,7 +206,14 @@ class _loginState extends State<login> {
                     
                     padding: const EdgeInsets.symmetric(horizontal: 22),
                     child: GestureDetector(
-                      onTap: signIn,
+                      //  onTap: signIn ,
+                      onTap: 
+                        signIn,
+                        // signIn(){
+                        //   utils().toastMessage('Suceessflyy Login');
+                        // }.onError((error, stackTrace){
+
+                        // });
                       child: Container(
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(color: const Color.fromARGB(255, 241, 24, 8),
