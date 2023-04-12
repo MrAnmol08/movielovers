@@ -9,12 +9,14 @@ class items extends StatelessWidget {
   final String itemSize;
   final String itemPrice;
   final String imagePath;
+  void Function()? onPressed;
 
-  const items({
+   items({
     required this.itemName,
     required this.itemSize,
     required this.itemPrice,
     required this.imagePath,
+    required this.onPressed,
 
   }
   );
@@ -51,7 +53,8 @@ class items extends StatelessWidget {
           Text(itemSize),
        
           //itemPrice
-          MaterialButton(onPressed: (){},
+          MaterialButton(
+            onPressed: onPressed,
           color: const Color.fromARGB(255, 241, 24, 8),
           child: Text(itemPrice,
           style: GoogleFonts.openSans(
