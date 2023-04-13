@@ -41,8 +41,17 @@ class _RegisterPageState extends State<RegisterPage> {
     super.dispose();
   }
 
-  Future registerUserwithEmailandPassword(
-      String name, String email) async {
+  String? passwordValidator(String? value) {
+  if (value == null || value.isEmpty) {
+    return 'Please enter a password';
+  }
+  if (value.length < 8) {
+    return 'Password should be at least 8 characters';
+  }
+  return null;
+}
+
+  Future registerUserwithEmailandPassword(String name, String email) async {
     try {
       User user = (await FirebaseAuth.instance
               .createUserWithEmailAndPassword(email: _emailController.text, password: _passwordController.text))
@@ -217,6 +226,7 @@ class _RegisterPageState extends State<RegisterPage> {
               child: TextField(
                 obscureText: passwordObscured,
                 controller: _passwordController,
+               // validator: passwordValidator,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),

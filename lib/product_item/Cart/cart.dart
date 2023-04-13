@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:movielovers/product_item/cart_model.dart';
+import 'package:provider/provider.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -41,16 +43,58 @@ class _CartState extends State<Cart> {
           ),
         ),
       ),
-      body: Column(
+      body: Consumer<Cartmodel>(
+        builder:((context, value, child) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(child: ListView.builder(itemBuilder: (context, index) {
-            return ListTile(
-              title: Text('item'),
-            );
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: ListView.builder(
+                itemCount: value.cartItems.length,
+                padding: EdgeInsets.all(12),
+                itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: ListTile(
+                    // title: Text(value.productItems[index][0]),
+                    leading: Image.asset(
+                      value.cartItems[index][3],
+                    ),
+                    title: Text(
+                      value.cartItems[index][0],
+                      style: GoogleFonts.openSans(
+            fontWeight: FontWeight.bold, fontSize: 18,
+            color: Color.fromARGB(255, 54, 63, 96),
+          ),
+                    ),
+                    subtitle: Text(
+                       value.cartItems[index][2],
+                      style: GoogleFonts.openSans(
+                        fontSize: 12,
+            color: Color.fromARGB(255, 54, 63, 96),
+          ),
+                      ),
 
-          }))
+
+                  ),
+                ),
+              );
+          },
+          ),
+            ),
+          )
         ],
+      );
+      }
       ),
+       ),
     );
   }
 }
