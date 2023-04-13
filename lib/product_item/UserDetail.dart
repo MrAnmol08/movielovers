@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:movielovers/payment/payment.dart';
 import 'package:movielovers/product_item/product.dart';
 
 class Userdetails extends StatefulWidget {
@@ -64,16 +65,16 @@ class _UserdetailsState extends State<Userdetails> {
           scrollDirection: Axis.vertical,
           child: Column(mainAxisAlignment:
            MainAxisAlignment.start,children: [
-            const SizedBox(
-              height: 20,
-            ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
             Image.asset(
               'assets/images/userdetail.gif',
               height: 200,
               width: 200,
             ),
              const Text(
-              'Fill the details below for delivery',
+              'Please Fill the details below for delivery',
               style: TextStyle(
                 color: Color.fromARGB(255, 54, 63, 96),
                 fontWeight: FontWeight.bold,
@@ -99,7 +100,7 @@ class _UserdetailsState extends State<Userdetails> {
                   fillColor: Color.fromARGB(255, 253, 253, 253),
                   filled: true,
                   prefixIcon: Icon(
-                    Icons.person,
+                    Icons.phone,
                     color: Colors.grey,
                   ),
                 ),
@@ -124,18 +125,21 @@ class _UserdetailsState extends State<Userdetails> {
                   fillColor: Color.fromARGB(255, 253, 253, 253),
                   filled: true,
                   prefixIcon: Icon(
-                    Icons.person,
+                    Icons.map,
                     color: Colors.grey,
                   ),
                 ),
               ),
             ),
 
+            SizedBox(height: 20),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22),
               child: GestureDetector(
-                onTap: () {
-                },
+                onTap:(){payWithKhalti(context);
+                }, 
+
                 child: Container(
                   padding: const EdgeInsets.all(15),
                   decoration: BoxDecoration(
