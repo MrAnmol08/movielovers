@@ -81,27 +81,6 @@ class _CartState extends State<Cart> {
                               ),
                             ),
                             subtitle: Text('\Rs.' + value.cartItems[index][2]),
-                            // subtitle: Column(
-                            //   crossAxisAlignment: CrossAxisAlignment.start,
-                            //   children: [
-                            //     Text(
-                            //        value.cartItems[index][1],
-                            //       style: GoogleFonts.openSans(
-                            //         fontSize: 12, fontWeight: FontWeight.bold,
-                            //         color: Color.fromARGB(255, 54, 63, 96),
-                            //          ),
-                            //       ),
-
-                            //       const SizedBox(height: 8),
-                            //       Text('\Rs.' + value.cartItems[index][2],
-                            //       style: GoogleFonts.openSans(
-                            //         fontSize: 12, fontWeight: FontWeight.bold,
-                            //         color: Color.fromARGB(255, 54, 63, 96),
-                            //          ),
-                            //       ),
-
-                            //   ],
-                            // ),
                             trailing: IconButton(
                               icon: const Icon(Ionicons.trash_bin),
                               color: Colors.grey[700],
@@ -109,6 +88,7 @@ class _CartState extends State<Cart> {
                                   Provider.of<Cartmodel>(context, listen: false)
                                       .removeItemFromCart(index),
                             ),
+                            
                           ),
                         ),
                       );

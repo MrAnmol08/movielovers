@@ -6,6 +6,7 @@ import 'package:movielovers/Auth/auth_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:movielovers/Auth/database_service.dart';
 import 'package:movielovers/user_pages/Login_page.dart';
+import 'package:movielovers/util/navbar.dart';
 
 class RegisterPage extends StatefulWidget {
   final VoidCallback showloginpage;
@@ -58,7 +59,11 @@ class _RegisterPageState extends State<RegisterPage> {
           .user!;
       if (user != null) {
         //call our database service to update the user data
-        await DatabaseService(uid: user.uid).updateUserData(_nameController.text, _emailController.text);
+        await DatabaseService(uid: user.uid).
+        updateUserData(_nameController.text, _emailController.text)
+        .then((value) => Navigator.pushReplacement(
+          context, MaterialPageRoute(
+            builder: (context) => const Navbar())));
         return true;
       }
     } on FirebaseAuthException catch (e) {
