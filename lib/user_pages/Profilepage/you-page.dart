@@ -4,10 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:movielovers/Auth/auth_page.dart';
+import 'package:movielovers/Auth/database_service.dart';
+import 'package:movielovers/product_item/UserDetail.dart';
+import 'package:movielovers/user_pages/Login_page.dart';
 import 'package:movielovers/user_pages/Profilepage/change_password.dart';
 import 'package:movielovers/user_pages/Profilepage/list.dart';
 import 'package:movielovers/user_pages/Profilepage/terms.dart';
 import 'package:movielovers/util/navbar.dart';
+
+import '../../Admin/UserDelete/deleteaccount.dart';
 
 class Youpage extends StatefulWidget {
   const Youpage({super.key});
@@ -17,8 +23,66 @@ class Youpage extends StatefulWidget {
 }
 
 class _YoupageState extends State<Youpage> {
-  final user = FirebaseAuth.instance.currentUser;
-  String? name = UserDetails.name;
+  final user = FirebaseAuth.instance.currentUser!;
+  
+  String _uid = "";
+  String _name = "";
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getdata();
+  }
+
+  void getdata() async {
+    _uid = user.uid;
+
+    final DocumentSnapshot userDoc =
+     await FirebaseFirestore.instance.collection('users').doc(_uid).get();
+     setState(() {
+       _name = userDoc.get('name');
+     });
+  }
+
+  Future<void> _deleteAccount() async {
+    try {
+      // User? user = FirebaseAuth.instance.currentUser!.currentUser;
+      User? user = _auth.currentUser;
+      await user?.delete();
+      Navigator.of(context).pop();
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  void _showDeleteAccountDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Are you sure you want to delete your account?'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Delete'),
+              onPressed: () {
+                _deleteAccount();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
+  // String? name = Userdetails6.name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,9 +127,15 @@ class _YoupageState extends State<Youpage> {
                 child: Image(image: AssetImage('assets/images/logofinal.png')),
               ),
               SizedBox(height: 10),
-              Text("${name}"),
+              Text(_name,
+              style: GoogleFonts.openSans(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Color.fromARGB(255, 54, 63, 96),
+                ),
+              ),
               Text(
-                user?.email ?? '',
+                user.email ?? '',
                 style: GoogleFonts.openSans(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
@@ -101,7 +171,7 @@ class _YoupageState extends State<Youpage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              Divider(color: Colors.grey),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -137,6 +207,46 @@ class _YoupageState extends State<Youpage> {
                           )),
                     ]),
               ),
+
+             Divider(color: Colors.grey),
+              Padding(
+                padding: const EdgeInsets.all(9.0),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
+                        Ionicons.settings_sharp,
+                        size: 20,
+                        color: Color.fromARGB(255, 92, 97, 118),
+                      ),
+                      SizedBox(width: 8),
+                      Text(
+                        'Delete Account',
+                        style: GoogleFonts.openSans(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                          color: Color.fromARGB(255, 54, 63, 96),
+                        ),
+                      ),
+                      SizedBox(width: 140),
+                      GestureDetector(
+                          onTap: () {
+                           // DeleteAccountPage();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DeleteAccountPage()),
+                            );
+                          },
+                           child: Icon(
+                            Ionicons.chevron_forward_outline,
+                            size: 25,
+                            color: Color.fromARGB(255, 116, 119, 129),
+                          )
+                           ),
+                    ]),
+              ),
+
               Divider(color: Colors.grey),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -173,34 +283,40 @@ class _YoupageState extends State<Youpage> {
                     ]),
               ),
               Divider(color: Colors.grey),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(children: [
-                  Icon(
-                    Ionicons.log_out_outline,
-                    size: 20,
-                    color: const Color.fromARGB(255, 166, 41, 41),
-                  ),
-                  SizedBox(width: 12),
-                  Text(
-                    'Log Out',
-                    style: GoogleFonts.openSans(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17,
-                      color: Color.fromARGB(255, 54, 63, 96),
+              InkWell(
+                onTap: () {
+                  FirebaseAuth.instance.signOut().then((value) => 
+                  Navigator.push(context, MaterialPageRoute(builder: 
+                  (context) {
+                    return AuthPage();
+                    
+                  })));
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(children: [
+                    Icon(
+                      Ionicons.log_out_outline,
+                      size: 20,
+                      color: const Color.fromARGB(255, 166, 41, 41),
                     ),
-                  ),
-                  SizedBox(width: 240),
-                  GestureDetector(
-                      onTap: () {
-                        FirebaseAuth.instance.signOut();
-                      },
-                      child: Icon(
-                        Ionicons.chevron_forward_outline,
-                        size: 25,
-                        color: Color.fromARGB(255, 116, 119, 129),
-                      )),
-                ]),
+                    SizedBox(width: 12),
+                    Text(
+                      'Log Out',
+                      style: GoogleFonts.openSans(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                        color: Color.fromARGB(255, 54, 63, 96),
+                      ),
+                    ),
+                    SizedBox(width: 240),
+                    Icon(
+                      Ionicons.chevron_forward_outline,
+                      size: 25,
+                      color: Color.fromARGB(255, 116, 119, 129),
+                    ),
+                  ]),
+                ),
               ),
             ],
           ),

@@ -32,6 +32,11 @@ class Cartmodel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void increaseQuantity(int index) {
+    _cartItems[index][3]++; // increment quantity of the item
+    notifyListeners();
+  }
+
 
   //calculate total price
   String calculateTotal(){

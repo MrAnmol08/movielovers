@@ -41,24 +41,26 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 240, 236, 236),
-      appBar: AppBar(
+      appBar: AppBar(automaticallyImplyLeading: false,
         backgroundColor: Color.fromARGB(255, 237, 231, 231),
-        title: Text(
-          'Movie Lovers',
-          style: TextStyle(
-              color: Color.fromARGB(255, 54, 63, 96),
-              fontWeight: FontWeight.w900,
-              fontSize: 25),
+        title: Center(
+          child: Text(
+            'Movie Lovers',
+            style: TextStyle(
+                color: Color.fromARGB(255, 54, 63, 96),
+                fontWeight: FontWeight.w900,
+                fontSize: 25),
+          ),
         ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.shopping_cart,
-                color: Colors.black,
-                size: 26,
-              ))
-        ],
+        // actions: [
+        //   IconButton(
+        //       onPressed: () {},
+        //       icon: Icon(
+        //         Icons.shopping_cart,
+        //         color: Colors.black,
+        //         size: 26,
+        //       ))
+        // ],
       ),
       body: Column(children: [
         Stack(
