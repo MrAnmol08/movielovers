@@ -45,41 +45,41 @@ class _YoupageState extends State<Youpage> {
      });
   }
 
-  Future<void> _deleteAccount() async {
-    try {
-      // User? user = FirebaseAuth.instance.currentUser!.currentUser;
-      User? user = _auth.currentUser;
-      await user?.delete();
-      Navigator.of(context).pop();
-    } catch (e) {
-      print(e.toString());
-    }
-  }
+  // Future<void> _deleteAccount() async {
+  //   try {
+  //     // User? user = FirebaseAuth.instance.currentUser!.currentUser;
+  //     User? user = _auth.currentUser;
+  //     await user?.delete();
+  //     Navigator.of(context).pop();
+  //   } catch (e) {
+  //     print(e.toString());
+  //   }
+  // }
 
-  void _showDeleteAccountDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Are you sure you want to delete your account?'),
-          actions: <Widget>[
-            TextButton(
-              child: Text('Cancel'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: Text('Delete'),
-              onPressed: () {
-                _deleteAccount();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+  // void _showDeleteAccountDialog() {
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         title: Text('Are you sure you want to delete your account?'),
+  //         actions: <Widget>[
+  //           TextButton(
+  //             child: Text('Cancel'),
+  //             onPressed: () {
+  //               Navigator.of(context).pop();
+  //             },
+  //           ),
+  //           TextButton(
+  //             child: Text('Delete'),
+  //             onPressed: () {
+  //               _deleteAccount();
+  //             },
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 
 
   // String? name = Userdetails6.name;
@@ -232,11 +232,11 @@ class _YoupageState extends State<Youpage> {
                       GestureDetector(
                           onTap: () {
                            // DeleteAccountPage();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => DeleteAccountPage()),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => DeleteAccountPage()),
+                            // );
                           },
                            child: Icon(
                             Ionicons.chevron_forward_outline,
