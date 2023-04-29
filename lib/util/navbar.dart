@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:movielovers/product_page/product.dart';
 import 'package:movielovers/user_pages/Home_page.dart';
 import 'package:movielovers/product_item/product.dart';
 import 'package:movielovers/user_pages/MovieTicket/ticket.dart';

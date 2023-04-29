@@ -18,9 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create:(context) => Cartmodel(),
-      child: KhaltiScope(
+    return
+       KhaltiScope(
           publicKey: "test_public_key_a451336c859c4556b36ce906655d96a2",
           builder: (context, navKey) {
             return MaterialApp(
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
                 KhaltiLocalizations.delegate
               ],
             );
-          }),
-    );
+          });
+    
   }
 }

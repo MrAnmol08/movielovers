@@ -46,7 +46,12 @@ dependencies:
   flutter_svg: ^1.1.6
   khalti_flutter: ^2.1.0
   lottie: ^1.4.2
-  provider: 
+  #Product dependencies
+  shared_preferences: ^2.1.0
+  provider: ^6.0.5
+  path_provider: ^2.0.14
+  #sqflite: ^2.2.8
+  badges: ^3.1.1
  
 
 dev_dependencies:
