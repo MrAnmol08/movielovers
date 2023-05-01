@@ -15,23 +15,62 @@ class ChangePassword extends StatefulWidget {
 }
 
 class _ChangePasswordState extends State<ChangePassword> {
+
+  void showToast(String message, BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: const Duration(seconds: 3),
+      ),
+    );
+  } 
   final auth = FirebaseAuth.instance;
   final User = FirebaseAuth.instance.currentUser;
   bool passwordObscured = true;
   final _oldpasswordController = TextEditingController();
   final _newpasswordController = TextEditingController();
 
-  passwordchange(email,oldPassword,newPassword) async {
-    var cred = EmailAuthProvider.credential(email: email, password: oldPassword);
-    await User!.reauthenticateWithCredential(cred).then((value) {
-      User!.updatePassword(newPassword);
-    }).catchError((error){
-      print(error.toString());
-
-    });
-
-
+  Future<void> changepass(String oldpassword, String newpassword) async {
+    try {
+      final email = User?.email;
+      final cred = EmailAuthProvider.credential(email: email!, password: oldpassword);
+      await User?.reauthenticateWithCredential(cred);
+      await User?.updatePassword(newpassword);
+      showToast("Password updated successfully", context);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == "wrong-password") {
+        showToast("Incorrect old password", context);
+      } else {
+        showToast(e.message!, context);
+      }
+    } catch (e) {
+      showToast(e.toString(), context);
+    }
   }
+
+  // Future changepass(oldpassword, newpassword) async {
+  //   String? email = User?.email;
+  //   debugPrint(email);
+  //   var cred =
+  //       EmailAuthProvider.credential(email: email, password: oldpassword);
+  //   await User?.reauthenticateWithCredential(cred).then((value) {
+  //     User?.updatePassword(newpassword);
+  //   }).catchError((error) {
+  //     errorDialog(error.toString());
+  //   });
+  // }
+
+  // passwordchange(email,oldPassword,newPassword) async {
+  //   var cred = EmailAuthProvider.credential(email: email, password: oldPassword);
+  //   await User!.reauthenticateWithCredential(cred).then((value) {
+  //     User!.updatePassword(newPassword);
+  //   }).catchError((error){
+  //     print(error.toString());
+
+  //   });
+
+
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -137,9 +176,9 @@ class _ChangePasswordState extends State<ChangePassword> {
                   ),
                   suffixIcon: GestureDetector(
                       onTap: () {
-                        setState(() {
-                          passwordObscured = !passwordObscured;
-                        });
+                        // setState(() {
+                        //   passwordObscured = !passwordObscured;
+                        // }); 
                       },
                       child: Icon(
                         passwordObscured
@@ -234,7 +273,14 @@ class _ChangePasswordState extends State<ChangePassword> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22),
               child: GestureDetector(
-                onTap: (){
+                onTap: () async {
+                  if (_oldpasswordController.text.isEmpty || _newpasswordController.text.isEmpty) {
+      showToast('Please enter both old and new password', context);
+      return;
+    }
+     await changepass(_oldpasswordController.text, _newpasswordController.text);
+    _oldpasswordController.clear();
+    _newpasswordController.clear();
                 },
                 child: Container(
                   padding: const EdgeInsets.all(15),
@@ -257,6 +303,8 @@ class _ChangePasswordState extends State<ChangePassword> {
       ),
     );
   }
+  
+  void errorDialog(String string) {}
 }
 
 //auth.sendPasswordResetEmail(email: email).then((value){
