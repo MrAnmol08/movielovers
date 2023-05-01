@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:khalti_flutter/khalti_flutter.dart';
+import 'package:movielovers/user_pages/Home_page.dart';
+import 'package:movielovers/util/navbar.dart';
 
 void payWithKhalti(BuildContext context) {
     var pay = KhaltiScope.of(context).pay(
@@ -25,7 +27,8 @@ void payWithKhalti(BuildContext context) {
       actions: [
         SimpleDialogOption(child: const Text('OK'),
         onPressed: (){
-          Navigator.pop(context);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Navbar()),
+          );
         },
         ),
       ],

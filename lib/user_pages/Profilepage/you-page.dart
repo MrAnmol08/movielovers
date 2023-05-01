@@ -174,38 +174,47 @@ class _YoupageState extends State<Youpage> {
               Divider(color: Colors.grey),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Ionicons.settings_sharp,
-                        size: 20,
-                        color: Color.fromARGB(255, 92, 97, 118),
-                      ),
-                      SizedBox(width: 8),
-                      Text(
-                        'Change Password',
-                        style: GoogleFonts.openSans(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
-                          color: Color.fromARGB(255, 54, 63, 96),
+                child: GestureDetector(
+                  onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ChangePassword()),
+                              );
+                            },
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Ionicons.settings_sharp,
+                          size: 20,
+                          color: Color.fromARGB(255, 92, 97, 118),
                         ),
-                      ),
-                      SizedBox(width: 140),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ChangePassword()),
-                            );
-                          },
-                          child: Icon(
-                            Ionicons.chevron_forward_outline,
-                            size: 25,
-                            color: Color.fromARGB(255, 116, 119, 129),
-                          )),
-                    ]),
+                        SizedBox(width: 8),
+                        Text(
+                          'Change Password',
+                          style: GoogleFonts.openSans(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                            color: Color.fromARGB(255, 54, 63, 96),
+                          ),
+                        ),
+                        SizedBox(width: 140),
+                        // GestureDetector(
+                        //     onTap: () {
+                        //       Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) => ChangePassword()),
+                        //       );
+                        //     },
+                             Icon(
+                              Ionicons.chevron_forward_outline,
+                              size: 25,
+                              color: Color.fromARGB(255, 116, 119, 129),
+                            ),
+                      ]),
+                ),
               ),
 
              Divider(color: Colors.grey),
