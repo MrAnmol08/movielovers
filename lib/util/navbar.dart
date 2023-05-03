@@ -16,6 +16,8 @@ class Navbar extends StatefulWidget {
 }
 class UserDetails{
   static String? name;
+
+  static String? email;
 }
 
 class _NavbarState extends State<Navbar> {
@@ -49,15 +51,20 @@ class _NavbarState extends State<Navbar> {
       onError: (e) => print("Error getting document: $e"),
     );
 
-    @override
+   
+  }
+   @override
     void initState() {
       _getUserDetails();
       super.initState();
     }
-  }
 
   int navindex = 0;
-  final screen = [const HomePage(), const ChooseSeat(), const Product(), const Youpage(), ];
+  final screen = [
+    const HomePage(),
+     const ChooseSeat(),
+      const Product(), 
+      const Youpage(), ];
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +104,9 @@ class _NavbarState extends State<Navbar> {
           // ignore: unnecessary_this
           onTap: (index) => setState(() => this.navindex = index),
           ),
-          body: screen[navindex],
+          body: IndexedStack(
+            index: navindex,
+            children: screen),
     );
   }
 }

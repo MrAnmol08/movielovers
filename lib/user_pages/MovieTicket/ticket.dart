@@ -67,7 +67,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
     for (final seat in listSeatLeft) {
       if (seat["isSelected"]) {
         setState(() {
-          seat["isBooked"] = true;
+          seat["isBooked"] = false;
           
         });
       }

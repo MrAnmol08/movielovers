@@ -55,44 +55,28 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Future registerUserwithEmailandPassword(String name, String email) async {
     try {
+      showDialog(
+        context: context,
+        builder: (context){
+          return Center(child: CircularProgressIndicator());
+        },
+        );
       User user = (await FirebaseAuth.instance
               .createUserWithEmailAndPassword(email: _emailController.text, password: _passwordController.text))
           .user!;
-      if (user != null) {
-        //call our database service to update the user data
-        await DatabaseService(uid: user.uid).
-        updateUserData(_nameController.text, _emailController.text)
-        .then((value) => Navigator.pushReplacement(
-          context, MaterialPageRoute(
-            builder: (context) => const Navbar())));
-        return true;
-      }
+          // Send verification email
+      //  
+      await DatabaseService(uid: user.uid).
+      updateUserData(_nameController.text, _emailController.text)
+      .then((value) => Navigator.pushReplacement(
+        context, MaterialPageRoute(
+          builder: (context) => const Navbar())));
+      return true;
     } on FirebaseAuthException catch (e) {
       print(e);
       return e;
     }
-  // } else {
-  //   Fluttertoast.showToast(msg: "Password do not match");
-  //   return false;
   }
-
-  // Future signUp() async {
-  //   if (passwordConfirmed()){
-  //     User user = (await FirebaseAuth.instance.createUserWithEmailAndPassword(
-  //     fullname: _nameController.text.trim(),
-  //     email: _emailController.text.trim(),
-  //     password: _passwordController.text.trim(),
-  //     )).user(e);
-
-  //     addUserDetails(
-  //       _nameController.text.trim(),
-  //       _emailController.text.trim(),
-  //     );
-
-  //   }
-
-  // }
-
   bool passwordConfirmed() {
     if (_passwordController.text.trim() ==
         _confirmpasswordController.text.trim()) {
@@ -206,6 +190,7 @@ class _RegisterPageState extends State<RegisterPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: TextField(
+                 keyboardType: TextInputType.emailAddress,
                 controller: _emailController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -226,6 +211,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
+            
 
             // Password section in register page
 
@@ -383,4 +369,5 @@ class DatabaseService {
     throw Exception("Invalid UID");
   }
   }
+  
 }
