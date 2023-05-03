@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:movielovers/payment/payment.dart';
+import 'package:movielovers/product_item/Cart/cart.dart';
 import 'package:movielovers/product_item/product.dart';
 
 class Userdetails extends StatefulWidget {
@@ -12,15 +13,31 @@ class Userdetails extends StatefulWidget {
 }
 
 class _UserdetailsState extends State<Userdetails> {
-
   final _phoneController = TextEditingController();
-  final _locationController = TextEditingController(); 
+  final _locationController = TextEditingController();
+  bool _isButtonEnabled = false; // Track whether both text fields have values
 
   @override
   void dispose() {
     _phoneController.dispose();
     _locationController.dispose();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Listen for changes in text fields
+    _phoneController.addListener(_onTextChanged);
+    _locationController.addListener(_onTextChanged);
+  }
+
+  void _onTextChanged() {
+    // Enable button only if both text fields have values
+    setState(() {
+      _isButtonEnabled = _phoneController.text.isNotEmpty &&
+          _locationController.text.isNotEmpty;
+    });
   }
 
   @override
@@ -47,9 +64,9 @@ class _UserdetailsState extends State<Userdetails> {
             color: Color.fromARGB(255, 54, 63, 96),
           ),
           onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Product()),
-                ),
+            context,
+            MaterialPageRoute(builder: (context) => const Cart()),
+          ),
           //  MaterialPageRoute(builder: (context) =>  login(showRegisterPage: () {  },)),
         ),
         title: const Text(
@@ -57,14 +74,17 @@ class _UserdetailsState extends State<Userdetails> {
           style: TextStyle(
             color: Color.fromARGB(255, 54, 63, 96),
             fontWeight: FontWeight.bold,
+            fontSize: 25,
           ),
         ),
       ),
-      body: SafeArea(child: Center(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(mainAxisAlignment:
-           MainAxisAlignment.start,children: [
+      body: SafeArea(
+          child: Center(
+              child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
             // const SizedBox(
             //   height: 20,
             // ),
@@ -73,7 +93,7 @@ class _UserdetailsState extends State<Userdetails> {
               height: 200,
               width: 200,
             ),
-             const Text(
+            const Text(
               'Please Fill the details below for delivery',
               style: TextStyle(
                 color: Color.fromARGB(255, 54, 63, 96),
@@ -86,6 +106,8 @@ class _UserdetailsState extends State<Userdetails> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: TextField(
+                keyboardType: TextInputType.number,
+                maxLength: 10,
                 controller: _phoneController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
@@ -137,8 +159,20 @@ class _UserdetailsState extends State<Userdetails> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 22),
               child: GestureDetector(
-                onTap:(){payWithKhalti(context);
-                }, 
+                onTap:
+                //  _isButtonEnabled?
+                  () {
+                    if (_phoneController.text.isEmpty || _locationController.text.isEmpty){
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Please fill the empty'),)
+                        );
+                    } else {
+                      payWithKhalti(context);
+
+                    }
+                        
+                      },
+                    // Disable button if both text fields are not filled
 
                 child: Container(
                   padding: const EdgeInsets.all(15),
@@ -156,13 +190,9 @@ class _UserdetailsState extends State<Userdetails> {
                 ),
               ),
             ),
-
-
-
-          ],),
-        )
-      )),
+          ],
+        ),
+      ))),
     );
-    
   }
 }

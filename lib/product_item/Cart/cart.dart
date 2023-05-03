@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:movielovers/product_item/UserDetail.dart';
 import 'package:movielovers/product_item/cart_model.dart';
+import 'package:movielovers/product_item/product.dart';
+import 'package:movielovers/util/navbar.dart';
 import 'package:provider/provider.dart';
 
 class Cart extends StatefulWidget {
@@ -20,8 +22,11 @@ class _CartState extends State<Cart> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
-          },
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => const Navbar()),
+  );
+},
           icon: const Icon(Ionicons.arrow_back_sharp),
           color: const Color.fromARGB(255, 54, 63, 96),
         ),

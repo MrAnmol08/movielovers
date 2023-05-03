@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:movielovers/Auth/auth_page.dart';
+import 'package:movielovers/user_pages/Profilepage/EditProfile/editprofile.dart';
 // import 'package:movielovers/Auth/database_service.dart';
 // import 'package:movielovers/product_item/UserDetail.dart';
 // import 'package:movielovers/user_pages/Login_page.dart';
@@ -159,7 +160,13 @@ class _YoupageState extends State<Youpage> {
                     ),
                   ),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EditProfile()),
+                              );
+                    },
                     child: Text(
                       'Edit Profile',
                       style: GoogleFonts.openSans(
