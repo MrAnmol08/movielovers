@@ -53,7 +53,7 @@ class _TermState extends State<Term> {
         child: Column(
           children: [
             const Padding(
-              padding:  EdgeInsets.all(8.0),
+              padding:  EdgeInsets.all(12.0),
               child: Text(terms),
             )
           ],
