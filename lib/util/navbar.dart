@@ -18,12 +18,14 @@ class UserDetails{
   static String? name;
 
   static String? email;
+  static String? uid;
 }
 
 class _NavbarState extends State<Navbar> {
   final user = FirebaseAuth.instance.currentUser;
   String? name = '';
   String? uid = '';
+  String? email = '';
 
 //   Stream<QuerySnapshot> get users {
 //     return userCollection.snapshots();
@@ -44,9 +46,13 @@ class _NavbarState extends State<Navbar> {
       (DocumentSnapshot doc) {
         final data = doc.data() as Map<String, dynamic>;
         name = data['name'];
+        email = data['email'];
+        uid = data ['uid'];
         print("userName" + name!);
-        //  print("LastName" + lastName!);
+        print('email' + email!);
         UserDetails.name = name;
+        UserDetails.email = email;
+        UserDetails.uid = uid;
       },
       onError: (e) => print("Error getting document: $e"),
     );
