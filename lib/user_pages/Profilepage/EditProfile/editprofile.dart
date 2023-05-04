@@ -41,6 +41,7 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   void _handleSaveButtonPressed() async {
+    final newName = _NameController.text.trim();
     try {
        if (_emailController.text.isNotEmpty &&
           _NameController.text.isNotEmpty &&
@@ -48,19 +49,19 @@ class _EditProfileState extends State<EditProfile> {
         final name = _NameController.text;
         final email = _emailController.text;
         await DatabaseService(uid: UserDetails.uid)
-            .updateUserData(name, email,);
+            .updateUserData(name, newName,);
         Fluttertoast.showToast(
           msg: "Save change successfully",
           backgroundColor: Colors.green,
           fontSize: 16.0,
         );
-        Navigator.pop(context);
+        Navigator.pop(context, newName);
       } else {
         Fluttertoast.showToast(
             msg: "Field cannot be empty",
             toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.TOP,
-            backgroundColor: Colors.red,
+            // gravity: ToastGravity.TOP,
+            // backgroundColor: Colors.red,
             textColor: Colors.white,
             fontSize: 16.0);
       }
