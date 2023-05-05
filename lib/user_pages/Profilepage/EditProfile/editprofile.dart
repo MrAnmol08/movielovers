@@ -49,13 +49,12 @@ class _EditProfileState extends State<EditProfile> {
         final name = _NameController.text;
         final email = _emailController.text;
         await DatabaseService(uid: UserDetails.uid)
-            .updateUserData(name, newName,);
+            .updateUserData(name, email);
         Fluttertoast.showToast(
           msg: "Save change successfully",
           backgroundColor: Colors.green,
           fontSize: 16.0,
         );
-        Navigator.pop(context, newName);
       } else {
         Fluttertoast.showToast(
             msg: "Field cannot be empty",

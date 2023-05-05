@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:movielovers/Auth/auth_page.dart';
+import 'package:movielovers/user_pages/Login_page.dart';
 import 'package:movielovers/user_pages/Profilepage/EditProfile/editprofile.dart';
 import 'package:movielovers/user_pages/Profilepage/change_password.dart';
 import 'package:movielovers/user_pages/Profilepage/terms.dart';
@@ -155,14 +156,11 @@ class _YoupageState extends State<Youpage> {
               SizedBox(
                 width: 200,
                 child: ElevatedButton(
-                  onPressed: () async {
-                    final newName = await Navigator.push<String>(context,
-                        MaterialPageRoute(builder: (context) => EditProfile()));
-                    if (newName != null) {
-                      setState(() {
-                        _name = newName;
-                      });
-                    }
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => EditProfile())));
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
@@ -237,40 +235,54 @@ class _YoupageState extends State<Youpage> {
               ),
               Divider(color: Colors.grey),
               InkWell(
-                onTap: (){
-                  showDialog(context: context, 
-                  builder:(context) => AlertDialog(
-                    title: Text('Confirm Delete',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    content: Text('Are you sure you want to delete? This action cannot be undone'),
-                    actions: [
-                      ElevatedButton(
-                        onPressed: () => Navigator.pop(context),
-                       child: Text('CANCEL',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                       ),
-                       ),
-                      ElevatedButton(onPressed: () async{
-                        Navigator.pop(context); //To close the confirmation dialog
-                        try {
-                          User user = FirebaseAuth.instance.currentUser!;
-                          await user.delete();
-                        } catch (e) {
-                          print('Error deleting user: $e');
-                          //show an error snackbar
-                          ScaffoldMessenger.of(context)
-                          .showSnackBar(SnackBar(content: Text('Error Deleting user. Please try again later!!!'),));
-                        }
-
-                      }, child: Text('DELETE',
-                       style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      
-                      ),
-                      
-                    ],
-                  ));
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            title: Text(
+                              'Confirm Delete',
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            content: Text(
+                                'Are you sure you want to delete? This action cannot be undone'),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () => Navigator.pop(context),
+                                child: Text(
+                                  'CANCEL',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              ElevatedButton(
+                                onPressed: () async {
+                                  //To close the confirmation dialog
+                                  try {
+                                    User user =
+                                        FirebaseAuth.instance.currentUser!;
+                                    print(user);
+                                    await user.delete();
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => AuthPage()),
+                                    );
+                                  } catch (e) {
+                                    print('Error deleting user: $e');
+                                    //show an error snackbar
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: Text(
+                                          'Error Deleting user. Please try again later!!!'),
+                                    ));
+                                  }
+                                },
+                                child: Text(
+                                  'DELETE',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ));
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -343,8 +355,9 @@ class _YoupageState extends State<Youpage> {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: Text('Sign Out',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          title: Text(
+                            'Sign Out',
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                           content: Text('Are you sure you want to sign out?'),
                           actions: <Widget>[
@@ -360,7 +373,10 @@ class _YoupageState extends State<Youpage> {
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (context) {
                                       return AuthPage();
-                                    })));
+                                    },
+                                    ),
+                                    ),
+                                    );
                               },
                               child: Text('OK'),
                             ),

@@ -203,13 +203,7 @@ class _loginState extends State<login> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 22),
                     child: GestureDetector(
-                      //  onTap: signIn ,
                       onTap: signIn,
-                      // signIn(){
-                      //   utils().toastMessage('Suceessflyy Login');
-                      // }.onError((error, stackTrace){
-
-                      // });
                       child: Container(
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
