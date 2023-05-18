@@ -72,7 +72,7 @@ class _CartState extends State<Cart> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: ListTile(
-                            // title: Text(value.productItems[index][0]),
+                            //title: Text(value.productItems[index][0]),
                             leading: Image.asset(
                               value.cartItems[index][3],
                               alignment: Alignment.bottomLeft,

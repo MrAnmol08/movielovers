@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:khalti_flutter/khalti_flutter.dart';
-import 'package:movielovers/product_item/Cart/cart.dart';
+import 'package:dcdg/dcdg.dart';
 import 'package:movielovers/product_item/cart_model.dart';
 import 'package:provider/provider.dart';
 import 'Auth/loginfirebaseauth.dart';

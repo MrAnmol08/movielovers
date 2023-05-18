@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Upload extends StatefulWidget {
   const Upload({super.key});
@@ -7,10 +10,12 @@ class Upload extends StatefulWidget {
   State<Upload> createState() => _UploadState();
 }
 
+
 class _UploadState extends State<Upload> {
-  @override
+     @override
   Widget build(BuildContext context) {
      final _nameController = TextEditingController();
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -47,6 +52,7 @@ class _UploadState extends State<Upload> {
           ),
         ),
       ),
+      
              body: SingleChildScrollView(
                child: Column(
                  children: [
@@ -166,11 +172,11 @@ class _UploadState extends State<Upload> {
                             borderSide: BorderSide(color: Colors.black),
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          hintText: 'Movie Language',
+                          hintText: 'Review by:',
                           fillColor: Color.fromARGB(255, 253, 253, 253),
                           filled: true,
                           prefixIcon: const Icon(
-                            Icons.language,
+                            Icons.person,
                             color: Colors.grey,
                           ),
                         ),

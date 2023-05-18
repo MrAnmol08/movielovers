@@ -22,6 +22,8 @@ class Product extends StatefulWidget {
   String refrenceId = "";
   
 class _ProductState extends State<Product> {
+  get productItems => null;
+
   
   @override
   Widget build(BuildContext context) {
@@ -87,17 +89,35 @@ class _ProductState extends State<Product> {
                   itemPrice: value.productItems[index][2],
                   imagePath: value.productItems[index][3],
                   onPressed: (){
-                    Provider.of<Cartmodel>(context, listen: false).addItemToCart(index);
-                    ScaffoldMessenger.of(context).showSnackBar(
+                    final cartItems = Provider.of<Cartmodel>(
+                      context, listen: false,).cartItems;
+                      //Check if product ia already in the cart
+                      if(cartItems.any((item)=> item.itemName == value.productItems[index][0] && item.itemSize == value.productItems[index][1]
+                      ))
+                      {
+                        ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Product added to cart'),
+                        content: Text('Product already added to cart'),
                       duration: Duration(seconds: 2),
-                      action: SnackBarAction(label: 'View Cart',
-                       onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Cart()));
-                       }),
                       ),
                       );
+                      } else {
+                         Provider.of<Cartmodel>(context, listen: false).addItemToCart(index );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Product added to cart'),
+                        duration: Duration(seconds: 2),
+                        action: SnackBarAction(label: 'View Cart',
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Cart()));
+                        },
+                        ),
+                      ),
+                      );
+                         
+                      }
+                   
+                    
                   } ,
                   );
               });

@@ -20,27 +20,27 @@ class Youpage extends StatefulWidget {
 }
 
 class _YoupageState extends State<Youpage> {
-  final user = FirebaseAuth.instance.currentUser!;
+  // final user = FirebaseAuth.instance.currentUser!;
 
-  String _uid = "";
-  String _name = "";
+  // String _uid = "";
+  // String _name = "";
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getdata();
-  }
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   getdata();
+  // }
 
-  void getdata() async {
-    _uid = user.uid;
+  // void getdata() async {
+  //   _uid = user.uid;
 
-    final DocumentSnapshot userDoc =
-        await FirebaseFirestore.instance.collection('users').doc(_uid).get();
-    setState(() {
-      _name = userDoc.get('name');
-    });
-  }
+  //   final DocumentSnapshot userDoc =
+  //       await FirebaseFirestore.instance.collection('users').doc(_uid).get();
+  //   setState(() {
+  //     _name = userDoc.get('name');
+  //   });
+  // }
 
   // A boolean to keep track of whether the refresh action is in progress
   bool _isRefreshing = false;
@@ -135,7 +135,8 @@ class _YoupageState extends State<Youpage> {
               ),
               SizedBox(height: 10),
               Text(
-                _name,
+                'Anmol',
+                //_name,
                 style: GoogleFonts.openSans(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
@@ -143,7 +144,8 @@ class _YoupageState extends State<Youpage> {
                 ),
               ),
               Text(
-                user.email ?? '',
+                'Anmol@gmail.com',
+                //user.email ?? '',
                 style: GoogleFonts.openSans(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,

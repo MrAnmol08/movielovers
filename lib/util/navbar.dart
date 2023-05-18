@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:movielovers/user_pages/Home_page.dart';
 import 'package:movielovers/product_item/product.dart';
+import 'package:movielovers/user_pages/MovieTicket/movie_ticket.dart';
 import 'package:movielovers/user_pages/MovieTicket/ticket.dart';
 import 'package:movielovers/user_pages/Profilepage/you-page.dart';
 
 class Navbar extends StatefulWidget {
-  const Navbar({super.key});
+  const Navbar({Key? key}) : super(key: key);
+  //const Navbar({super.key});
 
   @override
   State<Navbar> createState() => _NavbarState();
@@ -52,12 +54,11 @@ class _NavbarState extends State<Navbar> {
         UserDetails.name = name;
         UserDetails.email = email;
         UserDetails.uid = uid;
-      },
-      onError: (e) => print("Error getting document: $e"),
+      }, 
+       onError: (e) => print("Error getting document: $doc"),
     );
+  } 
 
-   
-  }
    @override
     void initState() {
       _getUserDetails();
@@ -67,15 +68,18 @@ class _NavbarState extends State<Navbar> {
   int navindex = 0;
   final screen = [
     const HomePage(),
-     const ChooseSeat(),
-      const Product(), 
-      const Youpage(), ];
+    //  const ChooseSeat(),
+    //  MovieTicketPage(),
+    MovieTicketPage(),
+     const Product(), 
+     const Youpage(),
+       ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-          unselectedLabelStyle: const TextStyle(
+          unselectedLabelStyle: const TextStyle( 
             color: Color.fromARGB(255, 54, 63,96),
             fontWeight: FontWeight.bold,
           ),
