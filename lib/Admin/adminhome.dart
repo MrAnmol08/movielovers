@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movielovers/Admin/AddMovie/uploaddetails.dart';
@@ -123,7 +122,7 @@ class _AdminHomeState extends State<AdminHome> {
             // ),
            
             const SizedBox(height: 10),
-            GridView.count(physics: NeverScrollableScrollPhysics(),
+            GridView.count(physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
@@ -143,7 +142,7 @@ class _AdminHomeState extends State<AdminHome> {
                 child: _buildBox('Movie Review', Icons.movie)),
               GestureDetector
               ( onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: ((context) =>  AdminTicketPage())));
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) =>  const AdminTicketPage())));
                 },
                 child: _buildBox('Movie Tickets', Icons.airplane_ticket)),
               GestureDetector(

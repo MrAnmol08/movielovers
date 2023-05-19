@@ -1,11 +1,8 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movielovers/product_item/UserDetail.dart';
 import 'package:movielovers/user_pages/Register_page.dart';
 import 'package:movielovers/util/navbar.dart';
 
@@ -72,7 +69,7 @@ class _EditProfileState extends State<EditProfile> {
           backgroundColor: Colors.red,
           textColor: Colors.white,
           fontSize: 16.0);
-      print('****' + e.code);
+      print('****${e.code}');
     }
   }
 
@@ -85,7 +82,7 @@ class _EditProfileState extends State<EditProfile> {
         elevation: 0,
         shadowColor: Colors.grey.withOpacity(1),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(4),
+          preferredSize: const Size.fromHeight(4),
           child: Container(
             decoration: BoxDecoration(
                 border: Border(
@@ -133,24 +130,24 @@ class _EditProfileState extends State<EditProfile> {
                     style: GoogleFonts.openSans(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
-                      color: Color.fromARGB(255, 54, 63, 96),
+                      color: const Color.fromARGB(255, 54, 63, 96),
                     ),
                   ),
                 ),
               ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: TextField(
                 controller: _NameController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.grey),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
+                    borderSide: const BorderSide(color: Colors.black),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   // hintText: 'FullName',
@@ -172,11 +169,11 @@ class _EditProfileState extends State<EditProfile> {
                 controller: _emailController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
+                    borderSide: const BorderSide(color: Colors.grey),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
+                    borderSide: const BorderSide(color: Colors.black),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   prefixIcon: const Icon(
@@ -220,14 +217,14 @@ class _EditProfileState extends State<EditProfile> {
   Widget buildTextField(String labelText, TextEditingController placeholder) {
     bool isEmailField = labelText.toLowerCase() == 'e-mail';
     return Padding(
-      padding: EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: 10),
       child: TextField(
         controller: placeholder,
         enabled: !isEmailField,
         decoration: InputDecoration(
             labelText: labelText,
             floatingLabelBehavior: FloatingLabelBehavior.always,
-            hintStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            hintStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
       ),
     );
   }

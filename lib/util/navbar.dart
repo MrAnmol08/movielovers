@@ -5,7 +5,6 @@ import 'package:ionicons/ionicons.dart';
 import 'package:movielovers/user_pages/Home_page.dart';
 import 'package:movielovers/product_item/product.dart';
 import 'package:movielovers/user_pages/MovieTicket/movie_ticket.dart';
-import 'package:movielovers/user_pages/MovieTicket/ticket.dart';
 import 'package:movielovers/user_pages/Profilepage/you-page.dart';
 
 class Navbar extends StatefulWidget {
@@ -70,7 +69,7 @@ class _NavbarState extends State<Navbar> {
     const HomePage(),
     //  const ChooseSeat(),
     //  MovieTicketPage(),
-    MovieTicketPage(),
+    const MovieTicketPage(),
      const Product(), 
      const Youpage(),
        ];

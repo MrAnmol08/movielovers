@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 
 import '../../product_item/cart_model.dart';
@@ -88,7 +87,7 @@ class _OrderState extends State<Order> {
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                         child: Text(
                           _isCompleted ? 'Completed' : 'Complete Order',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -101,12 +100,12 @@ class _OrderState extends State<Order> {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   'All the orders are presented here',
                   style: TextStyle(
                     color: Color.fromARGB(255, 44, 54, 87),

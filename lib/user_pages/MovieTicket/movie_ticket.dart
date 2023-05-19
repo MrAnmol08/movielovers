@@ -1,9 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MovieTicketPage extends StatefulWidget {
+  const MovieTicketPage({super.key});
+
   @override
   _MovieTicketPageState createState() => _MovieTicketPageState();
 }
@@ -20,13 +20,13 @@ class _MovieTicketPageState extends State<MovieTicketPage> {
   }
 
   void _bookSeats() {
-    List<String> _selectedSeats = [];
+    List<String> selectedSeats = [];
     for (int i = 0; i < _seatStatus.length; i++) {
       if (_seatStatus[i]){
-        _selectedSeats.add('Seat ${i +1}');
+        selectedSeats.add('Seat ${i +1}');
       }
        //Return the selected seats
-       Navigator.of(context).pop(_selectedSeats);
+       Navigator.of(context).pop(selectedSeats);
 
 
       // if (_seatStatus[i] ==1) {
@@ -37,24 +37,24 @@ class _MovieTicketPageState extends State<MovieTicketPage> {
     FirebaseFirestore.instance
         .collection('movie ticket')
         .doc('booked seats')
-        .set({'bookedSeats': _selectedSeats});
+        .set({'bookedSeats': selectedSeats});
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Seats booked'),
+          title: const Text('Seats booked'),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('Your selected seats have been booked:'),
-                SizedBox(height: 16),
-                Text(_selectedSeats.join(', ')),
+                const Text('Your selected seats have been booked:'),
+                const SizedBox(height: 16),
+                Text(selectedSeats.join(', ')),
               ],
             ),
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('OK'),
+              child: const Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -103,21 +103,21 @@ class _MovieTicketPageState extends State<MovieTicketPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
+              const Text(
                 'Movie Time: 4:00 AM',
                 style: TextStyle(fontSize: 18),
               ),
-              Text(
+              const Text(
                 'Movie Name: LOD',
                 style: TextStyle(fontSize: 18),
               ),
-              Text(
+              const Text(
                 'Hall: CDC Cinemas',
                 style: TextStyle(fontSize: 18),
               ),
               
               SingleChildScrollView(
-                child: Container(
+                child: SizedBox(
                   height: 250,
                   child: Image.asset(
                     'assets/images/lord.jpg',
@@ -126,7 +126,7 @@ class _MovieTicketPageState extends State<MovieTicketPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               GridView.count(
                 crossAxisCount: 10,
                 shrinkWrap: true,
@@ -136,7 +136,7 @@ class _MovieTicketPageState extends State<MovieTicketPage> {
                       _toggleSeatSelection(index);
                     },
                     child: Container(
-                      margin: EdgeInsets.all(2),
+                      margin: const EdgeInsets.all(2),
                       color: _seatStatus[index]  ? Colors.red : _seatStatus[index] ==1?  Colors.red: Colors.green,
                       child: Center(
                         child: Text(
@@ -151,10 +151,10 @@ class _MovieTicketPageState extends State<MovieTicketPage> {
                   );
                 }),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _bookSeats,
-                child: Text('Book Seats'),
+                child: const Text('Book Seats'),
               ),
               const SizedBox(height: 16),
               // StreamBuilder(

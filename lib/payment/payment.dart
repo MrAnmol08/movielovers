@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:khalti_flutter/khalti_flutter.dart';
-import 'package:movielovers/user_pages/Home_page.dart';
 import 'package:movielovers/util/navbar.dart';
 
 void payWithKhalti(BuildContext context) {
@@ -23,11 +22,11 @@ void payWithKhalti(BuildContext context) {
 
   void onSuccess(BuildContext context){
     showDialog(context: context, builder: (context){
-      return AlertDialog(title: Text('Payment Successful'),
+      return AlertDialog(title: const Text('Payment Successful'),
       actions: [
         SimpleDialogOption(child: const Text('OK'),
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Navbar()),
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const Navbar()),
           );
         },
         ),

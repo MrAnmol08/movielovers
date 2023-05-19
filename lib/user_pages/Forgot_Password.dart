@@ -73,10 +73,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 Text('Enter your Email to reset you password',
                 style: GoogleFonts.openSans(
                     fontWeight: FontWeight.bold,
-                    fontSize: 18, color: Color.fromARGB(255, 54, 63, 96),
+                    fontSize: 18, color: const Color.fromARGB(255, 54, 63, 96),
                   ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                    Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: TextField(
@@ -99,7 +99,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                   ),
                 ),
-                SizedBox(height: 13),
+                const SizedBox(height: 13),
 
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 22),

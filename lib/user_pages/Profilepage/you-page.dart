@@ -1,13 +1,9 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:movielovers/Auth/auth_page.dart';
-import 'package:movielovers/user_pages/Login_page.dart';
 import 'package:movielovers/user_pages/Profilepage/EditProfile/editprofile.dart';
 import 'package:movielovers/user_pages/Profilepage/change_password.dart';
 import 'package:movielovers/user_pages/Profilepage/terms.dart';

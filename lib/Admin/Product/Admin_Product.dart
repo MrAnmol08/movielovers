@@ -110,17 +110,17 @@ class _AdminProductState extends State<AdminProduct> {
                 ),
               );
             },
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
+            child: const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   const Icon(
+                   Icon(
                     Ionicons.arrow_forward,
                     color: Color.fromARGB(255, 44, 54, 87),
                   ),
-                  const SizedBox(width: 8),
-                   const Text(
+                  SizedBox(width: 8),
+                   Text(
                     'Order',
                     style: TextStyle(
                       color: Color.fromARGB(255, 44, 54, 87),

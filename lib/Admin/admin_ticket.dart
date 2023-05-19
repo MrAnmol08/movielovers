@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AdminTicketPage extends StatefulWidget {
+  const AdminTicketPage({super.key});
+
   @override
   _AdminTicketPageState createState() => _AdminTicketPageState();
 }
 
 class _AdminTicketPageState extends State<AdminTicketPage> {
-  List<bool> _seatStatus = List.generate(100, (index) => false);
+  final List<bool> _seatStatus = List.generate(100, (index) => false);
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +53,11 @@ class _AdminTicketPageState extends State<AdminTicketPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
+              const Text(
                 'Seats Overview:',
                 style: TextStyle(fontSize: 18),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               GridView.count(
                 crossAxisCount: 10,
                 shrinkWrap: true,
@@ -97,7 +99,7 @@ class SeatItem extends StatelessWidget {
   final int seatNumber;
   final bool isSelected;
 
-  const SeatItem({
+  const SeatItem({super.key, 
     required this.seatNumber,
     required this.isSelected,
   });
@@ -105,7 +107,7 @@ class SeatItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(2),
+      margin: const EdgeInsets.all(2),
       color: isSelected ? Colors.red : Colors.green,
       child: Center(
         child: Text(
