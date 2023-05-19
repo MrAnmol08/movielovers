@@ -1,13 +1,9 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:movielovers/Auth/auth_page.dart';
-import 'package:movielovers/user_pages/Login_page.dart';
 import 'package:movielovers/user_pages/Profilepage/EditProfile/editprofile.dart';
 import 'package:movielovers/user_pages/Profilepage/change_password.dart';
 import 'package:movielovers/user_pages/Profilepage/terms.dart';
@@ -20,27 +16,27 @@ class Youpage extends StatefulWidget {
 }
 
 class _YoupageState extends State<Youpage> {
-  final user = FirebaseAuth.instance.currentUser!;
+  // final user = FirebaseAuth.instance.currentUser!;
 
-  String _uid = "";
-  String _name = "";
+  // String _uid = "";
+  // String _name = "";
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getdata();
-  }
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   getdata();
+  // }
 
-  void getdata() async {
-    _uid = user.uid;
+  // void getdata() async {
+  //   _uid = user.uid;
 
-    final DocumentSnapshot userDoc =
-        await FirebaseFirestore.instance.collection('users').doc(_uid).get();
-    setState(() {
-      _name = userDoc.get('name');
-    });
-  }
+  //   final DocumentSnapshot userDoc =
+  //       await FirebaseFirestore.instance.collection('users').doc(_uid).get();
+  //   setState(() {
+  //     _name = userDoc.get('name');
+  //   });
+  // }
 
   // A boolean to keep track of whether the refresh action is in progress
   bool _isRefreshing = false;
@@ -135,7 +131,8 @@ class _YoupageState extends State<Youpage> {
               ),
               SizedBox(height: 10),
               Text(
-                _name,
+                'Anmol',
+                //_name,
                 style: GoogleFonts.openSans(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
@@ -143,7 +140,8 @@ class _YoupageState extends State<Youpage> {
                 ),
               ),
               Text(
-                user.email ?? '',
+                'Anmol@gmail.com',
+                //user.email ?? '',
                 style: GoogleFonts.openSans(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,

@@ -3,9 +3,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movielovers/user_pages/Profilepage/you-page.dart';
-import 'package:movielovers/util/navbar.dart';
-import 'package:movielovers/util/toast.dart';
 
 class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});

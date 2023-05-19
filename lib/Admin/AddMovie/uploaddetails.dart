@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class Upload extends StatefulWidget {
@@ -7,10 +8,12 @@ class Upload extends StatefulWidget {
   State<Upload> createState() => _UploadState();
 }
 
+
 class _UploadState extends State<Upload> {
-  @override
+     @override
   Widget build(BuildContext context) {
-     final _nameController = TextEditingController();
+     final nameController = TextEditingController();
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -47,6 +50,7 @@ class _UploadState extends State<Upload> {
           ),
         ),
       ),
+      
              body: SingleChildScrollView(
                child: Column(
                  children: [
@@ -58,18 +62,18 @@ class _UploadState extends State<Upload> {
                    Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
-                        controller: _nameController,
+                        controller: nameController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
+                            borderSide: const BorderSide(color: Colors.black),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           hintText: 'Movie Title',
-                          fillColor: Color.fromARGB(255, 253, 253, 253),
+                          fillColor: const Color.fromARGB(255, 253, 253, 253),
                           filled: true,
                           prefixIcon: const Icon(
                             Icons.title,
@@ -79,22 +83,22 @@ class _UploadState extends State<Upload> {
                       ),
                     ),
              
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                      Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
-                        controller: _nameController,
+                        controller: nameController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
+                            borderSide: const BorderSide(color: Colors.black),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           hintText: 'Movie Director',
-                          fillColor: Color.fromARGB(255, 253, 253, 253),
+                          fillColor: const Color.fromARGB(255, 253, 253, 253),
                           filled: true,
                           prefixIcon: const Icon(
                             Icons.person,
@@ -103,22 +107,22 @@ class _UploadState extends State<Upload> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                      Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
-                        controller: _nameController,
+                        controller: nameController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
+                            borderSide: const BorderSide(color: Colors.black),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           hintText: 'Movie Actors',
-                          fillColor: Color.fromARGB(255, 253, 253, 253),
+                          fillColor: const Color.fromARGB(255, 253, 253, 253),
                           filled: true,
                           prefixIcon: const Icon(
                             Icons.group,
@@ -128,22 +132,22 @@ class _UploadState extends State<Upload> {
                       ),
                     ),
              
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                      Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
-                        controller: _nameController,
+                        controller: nameController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
+                            borderSide: const BorderSide(color: Colors.black),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           hintText: 'Movie Review',
-                          fillColor: Color.fromARGB(255, 253, 253, 253),
+                          fillColor: const Color.fromARGB(255, 253, 253, 253),
                           filled: true,
                           prefixIcon: const Icon(
                             Icons.reviews,
@@ -156,42 +160,42 @@ class _UploadState extends State<Upload> {
                      Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
-                        controller: _nameController,
+                        controller: nameController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
+                            borderSide: const BorderSide(color: Colors.black),
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          hintText: 'Movie Language',
-                          fillColor: Color.fromARGB(255, 253, 253, 253),
+                          hintText: 'Review by:',
+                          fillColor: const Color.fromARGB(255, 253, 253, 253),
                           filled: true,
                           prefixIcon: const Icon(
-                            Icons.language,
+                            Icons.person,
                             color: Colors.grey,
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                      Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
-                        controller: _nameController,
+                        controller: nameController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey),
+                            borderSide: const BorderSide(color: Colors.grey),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
+                            borderSide: const BorderSide(color: Colors.black),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           hintText: 'Genre',
-                          fillColor: Color.fromARGB(255, 253, 253, 253),
+                          fillColor: const Color.fromARGB(255, 253, 253, 253),
                           filled: true,
                           prefixIcon: const Icon(
                             Icons.description,
@@ -200,22 +204,22 @@ class _UploadState extends State<Upload> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                      Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: TextField(
-                      controller: _nameController,
+                      controller: nameController,
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
+                          borderSide: const BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black),
+                          borderSide: const BorderSide(color: Colors.black),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         hintText: 'Published Date',
-                        fillColor: Color.fromARGB(255, 253, 253, 253),
+                        fillColor: const Color.fromARGB(255, 253, 253, 253),
                         filled: true,
                         prefixIcon: const Icon(
                           Icons.date_range,
@@ -224,7 +228,7 @@ class _UploadState extends State<Upload> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                    Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: GestureDetector(

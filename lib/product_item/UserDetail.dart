@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:movielovers/payment/payment.dart';
 import 'package:movielovers/product_item/Cart/cart.dart';
-import 'package:movielovers/product_item/product.dart';
 
 class Userdetails extends StatefulWidget {
   const Userdetails({super.key});

@@ -2,7 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:movielovers/product_item/items.dart';
 import 'package:provider/provider.dart';
 
+// class Item{
+//   final String itemName;
+//   final String itemSize;
+//   final String itemPrice;
+//   final String imagePath;
+  
+
+//   Item({
+//   required this.itemName,
+//   required this.itemSize,
+//   required this.itemPrice,
+//   required this.imagePath,
+//  });
+
+
+// }
+ 
+
 class Cartmodel extends ChangeNotifier {
+
+  
 
   //list of items on sale
   final List _productItems = [
@@ -15,35 +35,39 @@ class Cartmodel extends ChangeNotifier {
   ];
 
   // List of cart items
-  List _cartItems =[];
+  final List _cartItems = [];
   
   late BuildContext context;
 
-  get productItems =>  _productItems;
+ get productItems =>  _productItems;
 
-  get cartItems => _cartItems;
+ get cartItems => _cartItems;
   
 
   //add items to cart
   void addItemToCart(int index){
     _cartItems.add(_productItems[index]);
     notifyListeners();
+    // _cartItems.add(_productItems[index]);
+    // notifyListeners();
   }
+
   void increaseproduct(int index) {
   // Check if the product is already in the cart
   int existingIndex = _cartItems.indexWhere((item) => item.id == _productItems[index].id);
 
-  if (existingIndex != -1) {
+  if (existingIndex != 1) {
     // If the product is already in the cart, increase its quantity
     _cartItems[existingIndex].quantity++;
   } else {
     // If the product is not in the cart, add it with a quantity of 1
-    var value;
+    // var value;
     _cartItems.add(items(
-     itemName: value.productItems[index][0], 
-     itemSize: value.productItems[index][1],
-     itemPrice: value.productItems[index][2],
-     imagePath: value.productItems[index][3],
+     itemName: _productItems[index][0], 
+     itemSize: _productItems[index][1],
+     itemPrice: _productItems[index][2],
+     imagePath: _productItems[index][3],
+
      onPressed: (){
                     Provider.of<Cartmodel>(
                       context, listen: false)

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movielovers/product_item/single_product.dart';
 
 class items extends StatelessWidget {
   final String itemName;
@@ -65,7 +64,7 @@ class items extends StatelessWidget {
                 ),
                 Divider(),
                 Text(
-                  'Price' + ':' + 'Rs' + itemPrice,
+                  'Price:Rs$itemPrice',
                   style: GoogleFonts.openSans(
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 54, 63, 96),

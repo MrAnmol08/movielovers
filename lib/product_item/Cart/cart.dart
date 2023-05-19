@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:movielovers/product_item/UserDetail.dart';
 import 'package:movielovers/product_item/cart_model.dart';
-import 'package:movielovers/product_item/product.dart';
 import 'package:movielovers/util/navbar.dart';
 import 'package:provider/provider.dart';
 
@@ -48,7 +47,7 @@ class _CartState extends State<Cart> {
           style: GoogleFonts.openSans(
             fontWeight: FontWeight.bold,
             fontSize: 30,
-            color: Color.fromARGB(255, 54, 63, 96),
+            color: const Color.fromARGB(255, 54, 63, 96),
           ),
         ),
       ),
@@ -62,7 +61,7 @@ class _CartState extends State<Cart> {
                   padding: const EdgeInsets.all(8.0),
                   child: ListView.builder(
                     itemCount: value.cartItems.length,
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(12.0),
@@ -72,7 +71,7 @@ class _CartState extends State<Cart> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: ListTile(
-                            // title: Text(value.productItems[index][0]),
+                            //title: Text(value.productItems[index][0]),
                             leading: Image.asset(
                               value.cartItems[index][3],
                               alignment: Alignment.bottomLeft,
@@ -83,10 +82,10 @@ class _CartState extends State<Cart> {
                               style: GoogleFonts.openSans(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,
-                                color: Color.fromARGB(255, 54, 63, 96),
+                                color: const Color.fromARGB(255, 54, 63, 96),
                               ),
                             ),
-                            subtitle: Text('\Rs.' + value.cartItems[index][2]),
+                            subtitle: Text('Rs.' + value.cartItems[index][2]),
                             trailing: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               mainAxisSize: MainAxisSize.min,
@@ -94,26 +93,26 @@ class _CartState extends State<Cart> {
                                 IconButton(
                                     icon:
                                         const Icon(Ionicons.add_circle_outline),
-                                    color: Color.fromARGB(255, 27, 24, 63),
+                                    color: const Color.fromARGB(255, 27, 24, 63),
                                     onPressed: () {
                                     }
                                     //=>  Provider.of<Cartmodel>(context, listen: false)
                                     //         .increaseproduct(index),
                                     ),
-                                    Text('2'),
+                                    const Text('2'),
                                 IconButton(
                                     icon: const Icon(
                                         Ionicons.remove_circle_outline),
-                                    color: Color.fromARGB(255, 63, 24, 56),
+                                    color: const Color.fromARGB(255, 63, 24, 56),
                                     onPressed: () {}
                                     //=>  Provider.of<Cartmodel>(context, listen: false)
                                     //         .increaseproduct(index),
                                     ),
-                                    SizedBox(width: 15),
+                                    const SizedBox(width: 15),
                                 IconButton(
                                   iconSize: 25,
                                   icon: const Icon(Ionicons.trash),
-                                  color: Color.fromARGB(255, 67, 67, 67),
+                                  color: const Color.fromARGB(255, 67, 67, 67),
                                   onPressed: () => Provider.of<Cartmodel>(
                                           context,
                                           listen: false)
@@ -129,13 +128,13 @@ class _CartState extends State<Cart> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(36),
+                padding: const EdgeInsets.all(36),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 54, 63, 96),
+                    color: const Color.fromARGB(255, 54, 63, 96),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  padding: EdgeInsets.all(24),
+                  padding: const EdgeInsets.all(24),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -147,7 +146,7 @@ class _CartState extends State<Cart> {
                             style: GoogleFonts.openSans(
                               fontWeight: FontWeight.bold,
                               // fontSize: 18,
-                              color: Color.fromARGB(255, 246, 247, 249),
+                              color: const Color.fromARGB(255, 246, 247, 249),
                             ),
                           ),
                           Text(
@@ -155,7 +154,7 @@ class _CartState extends State<Cart> {
                             style: GoogleFonts.openSans(
                               fontWeight: FontWeight.bold,
                               // fontSize: 18,
-                              color: Color.fromARGB(255, 246, 247, 249),
+                              color: const Color.fromARGB(255, 246, 247, 249),
                             ),
                           ),
                         ],
@@ -165,16 +164,16 @@ class _CartState extends State<Cart> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Userdetails()),
+                                builder: (context) => const Userdetails()),
                           );
                         },
                         child: Container(
                           decoration: BoxDecoration(
                               border: Border.all(
-                                color: Color.fromARGB(255, 246, 247, 249),
+                                color: const Color.fromARGB(255, 246, 247, 249),
                               ),
                               borderRadius: BorderRadius.circular(12)),
-                          padding: EdgeInsets.all(12),
+                          padding: const EdgeInsets.all(12),
                           child: Row(
                             children: [
                               Text(

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ionicons/ionicons.dart';
 
 class ChooseSeat extends StatefulWidget {
   const ChooseSeat({Key? key}) : super(key: key);
@@ -36,7 +34,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
     //init variable to save your object data
     for (int i = 0; i < count; i++) {
       final objectData = {
-        "id": side + "${i + 1}",
+        "id": "$side${i + 1}",
         "isBooked": false,
         "isAvailable": true,
         "isSelected": false,
@@ -146,7 +144,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
       // ignore: sized_box_for_whitespace
       Padding(
         padding: const EdgeInsets.all(6.0),
-        child: Container(
+        child: SizedBox(
           height: 200,
           child: Image.asset(
             'assets/images/lord.jpg',
@@ -374,7 +372,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
   }
 
   Widget widgetSeat(List dataSeat, bool isCenter) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width / 3.93,
       child: GridView.builder(
         shrinkWrap: true,

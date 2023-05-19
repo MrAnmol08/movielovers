@@ -44,15 +44,15 @@ class _TermState extends State<Term> {
         style: GoogleFonts.openSans(
             fontWeight: FontWeight.bold,
             fontSize: 25,
-            color: Color.fromARGB(255, 54, 63, 96),
+            color: const Color.fromARGB(255, 54, 63, 96),
           ),
         ),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           children: [
-            const Padding(
+            Padding(
               padding:  EdgeInsets.all(12.0),
               child: Text(terms),
             )

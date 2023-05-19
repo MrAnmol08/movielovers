@@ -1,11 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ionicons/ionicons.dart';
-import 'package:movielovers/Admin/AddMovie/AddMovie.dart';
+import 'package:movielovers/Admin/AddMovie/uploaddetails.dart';
+import 'package:movielovers/Admin/Product/Admin_Product.dart';
+import 'package:movielovers/Admin/admin_ticket.dart';
 
 import '../Auth/auth_page.dart';
+import 'MovieADD/AddMovie.dart';
 
 class AdminHome extends StatefulWidget {
   const AdminHome({super.key});
@@ -121,7 +122,7 @@ class _AdminHomeState extends State<AdminHome> {
             // ),
            
             const SizedBox(height: 10),
-            GridView.count(physics: NeverScrollableScrollPhysics(),
+            GridView.count(physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
@@ -130,17 +131,25 @@ class _AdminHomeState extends State<AdminHome> {
              children: [
               GestureDetector(
                 onTap: (){
-                  // Navigator.push(context, MaterialPageRoute(builder: ((context) => const AddMovie())));
+                   Navigator.push(context, MaterialPageRoute(builder: ((context) => const AddMovie())));
                 },
-                child: _buildBox('Total User', Icons.people)),
+                child: _buildBox('Add Movie', Icons.movie)),
                 
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: ((context) => const AddMovie())));
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) => const Upload())));
                 },
                 child: _buildBox('Movie Review', Icons.movie)),
-              _buildBox('Movie Tickets', Icons.airplane_ticket),
-              _buildBox('Product', Icons.people),
+              GestureDetector
+              ( onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) =>  const AdminTicketPage())));
+                },
+                child: _buildBox('Movie Tickets', Icons.airplane_ticket)),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) =>  const AdminProduct())));
+                },
+                child: _buildBox('Product', Icons.people)),
              ],
              ),
           ],
