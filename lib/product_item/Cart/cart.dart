@@ -21,10 +21,8 @@ class _CartState extends State<Cart> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-  Navigator.pushReplacement(
-    context,
-    MaterialPageRoute(builder: (context) => const Navbar()),
-  );
+            Navigator.pop(context);
+  
 },
           icon: const Icon(Ionicons.arrow_back_sharp),
           color: const Color.fromARGB(255, 54, 63, 96),
@@ -150,7 +148,7 @@ class _CartState extends State<Cart> {
                             ),
                           ),
                           Text(
-                            value.calculateTotal(),
+                            value.calculateTotal().toString(),
                             style: GoogleFonts.openSans(
                               fontWeight: FontWeight.bold,
                               // fontSize: 18,
@@ -164,7 +162,9 @@ class _CartState extends State<Cart> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Userdetails()),
+                                builder: (context) => Userdetails(
+                                  FinalAmount:(value.calculateTotal())
+                                )),
                           );
                         },
                         child: Container(

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:khalti_flutter/khalti_flutter.dart';
 import 'package:movielovers/util/navbar.dart';
 
-void payWithKhalti(BuildContext context) {
-    var pay = KhaltiScope.of(context).pay(
+void payWithKhalti(BuildContext context,int FinalAmount) {
+    var pay = KhaltiScope.of(context ).pay(
       config: PaymentConfig(
-        amount: 1000, //in paisa
+        amount:FinalAmount * 10, //in paisa
         productIdentity: 'Product Id',
         productName: 'Product Name',
         mobileReadOnly: false,
