@@ -5,13 +5,16 @@ import 'package:movielovers/payment/payment.dart';
 import 'package:movielovers/product_item/Cart/cart.dart';
 
 class Userdetails extends StatefulWidget {
-  const Userdetails({super.key});
+  final int FinalAmount;
+  const Userdetails({super.key, required this.FinalAmount});
+
 
   @override
   State<Userdetails> createState() => _UserdetailsState();
 }
 
 class _UserdetailsState extends State<Userdetails> {
+  
   final _phoneController = TextEditingController();
   final _locationController = TextEditingController();
   bool _isButtonEnabled = false; // Track whether both text fields have values
@@ -166,7 +169,7 @@ class _UserdetailsState extends State<Userdetails> {
                         SnackBar(content: Text('Please fill the empty'),)
                         );
                     } else {
-                      payWithKhalti(context);
+                      payWithKhalti(context, widget.FinalAmount);
 
                     }
                         
