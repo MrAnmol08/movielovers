@@ -16,7 +16,6 @@ class Navbar extends StatefulWidget {
 }
 class UserDetails{
   static String? name;
-
   static String? email;
   static String? uid;
 }

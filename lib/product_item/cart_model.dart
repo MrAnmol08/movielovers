@@ -42,7 +42,7 @@ class Cartmodel extends ChangeNotifier {
   final List<List<String>> _productItems = [
     // [itemName, itemSize, itemPrice, imagePath]
     ["Pirati Tshirt", "Size: XL","20", "assets/images/Pirati_Tshirt.png"],
-    ["Pirati Tshirt", "Size: X","10", "assets/images/Pirati_Tshirt.png" ],
+    ["Bhasme Tshirt", "Size: X","10", "assets/images/Bhasme_Tshirt.png" ],
     ["Radaban Tshirt", "Size: XXL", "15", "assets/images/radaban_tshirt.png" ],
     ["Kabaddi Tshirt", "Size: XL","10","assets/images/Kabaddi_Tshirt.png" ],
     ["Gopi Tshirt", "Size: XXL","20","assets/images/Gopi_Tshirt.png" ],

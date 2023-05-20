@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movielovers/Admin/AddMovie/uploaddetails.dart';
+import 'package:movielovers/Admin/AddMovie/Movie_Review.dart';
 import 'package:movielovers/Admin/Product/Admin_Product.dart';
 import 'package:movielovers/Admin/admin_ticket.dart';
 
@@ -107,13 +107,13 @@ class _AdminHomeState extends State<AdminHome> {
              children: [
               GestureDetector(
                 onTap: (){
-                   Navigator.push(context, MaterialPageRoute(builder: ((context) => const AddMovie())));
+                   Navigator.push(context, MaterialPageRoute(builder: ((context) => AddMovie())));
                 },
                 child: _buildBox('Add Movie', Icons.movie)),
                 
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: ((context) => const Upload())));
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) =>  MovieReviewListPage())));
                 },
                 child: _buildBox('Movie Review', Icons.movie)),
               GestureDetector

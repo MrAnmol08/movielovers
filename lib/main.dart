@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:khalti_flutter/khalti_flutter.dart';
@@ -9,6 +10,9 @@ import 'Auth/loginfirebaseauth.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+   // Initialize Firebase App Check
+  
   runApp( MyApp());
 }
 

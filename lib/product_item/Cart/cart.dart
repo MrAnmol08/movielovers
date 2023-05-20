@@ -197,7 +197,10 @@ class _CartState extends State<Cart> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Userdetails(
-                                  FinalAmount:(value.calculateTotal())
+                                  
+                                  FinalAmount:value.calculateTotal(),
+                                  //  itemname: value.cartItems.map((item) =>
+                                  //   item[0]), itemsize: value.cartItems.map((item) => item[1]),
                                 )),
                           );
                         },
