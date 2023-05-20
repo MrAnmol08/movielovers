@@ -8,7 +8,7 @@ import 'package:movielovers/user_pages/MovieTicket/movie_ticket.dart';
 import 'package:movielovers/user_pages/Profilepage/you-page.dart';
 
 class Navbar extends StatefulWidget {
-  const Navbar({Key? key}) : super(key: key);
+  const Navbar({Key? key, Future<String>? token, String? uid}) : super(key: key);
   //const Navbar({super.key});
 
   @override
@@ -16,7 +16,6 @@ class Navbar extends StatefulWidget {
 }
 class UserDetails{
   static String? name;
-
   static String? email;
   static String? uid;
 }

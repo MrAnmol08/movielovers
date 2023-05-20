@@ -6,7 +6,11 @@ import 'package:movielovers/product_item/Cart/cart.dart';
 
 class Userdetails extends StatefulWidget {
   final int FinalAmount;
-  const Userdetails({super.key, required this.FinalAmount});
+  // final String itemname;
+  // final String itemsize;
+  const Userdetails({super.key, required this.FinalAmount,
+   //required this.itemname, required this.itemsize
+   });
 
 
   @override
@@ -169,7 +173,18 @@ class _UserdetailsState extends State<Userdetails> {
                         SnackBar(content: Text('Please fill the empty'),)
                         );
                     } else {
-                      payWithKhalti(context, widget.FinalAmount);
+                       // Access the properties of each Cartitem object
+                      //  final itemName = value.cartItems.map((item) => item.itemName).join(', ');
+                      //  final itemSize = value.cartItems.map((item) => item.itemSize).join(', ');
+       
+    
+
+                      payWithKhalti(context, widget.FinalAmount,
+                       _phoneController.text,
+                        _locationController.text);
+                        //  value.cartItems.map((item) => item[0]),
+                        // itemSize:
+                         
 
                     }
                         

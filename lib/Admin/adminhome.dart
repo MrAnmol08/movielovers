@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movielovers/Admin/AddMovie/uploaddetails.dart';
+import 'package:movielovers/Admin/AddMovie/Movie_Review.dart';
 import 'package:movielovers/Admin/Product/Admin_Product.dart';
 import 'package:movielovers/Admin/admin_ticket.dart';
 
@@ -19,31 +19,7 @@ class _AdminHomeState extends State<AdminHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0,
-      //   bottom: PreferredSize(
-      //     // ignore: prefer_const_constructors
-      //     preferredSize: Size.fromHeight(4),
-      //     child: Container(
-      //       decoration: BoxDecoration(
-      //           border: Border(
-      //               bottom: BorderSide(
-      //         color: Colors.grey.withOpacity(0.5),
-      //         width: 1,
-      //       ))),
-      //     ),
-      //   ),
-      //   title: Text(
-      //     'Dashboard',
-      //     style: GoogleFonts.openSans(
-      //       fontWeight: FontWeight.bold,
-      //       fontSize: 25,
-      //       color: const Color.fromARGB(255, 54, 63, 96),
-      //     ),
-      //   ),
-      //   centerTitle: true,
-      // ),
+      
       body: SafeArea(
         child: Column(
           children: [
@@ -131,13 +107,13 @@ class _AdminHomeState extends State<AdminHome> {
              children: [
               GestureDetector(
                 onTap: (){
-                   Navigator.push(context, MaterialPageRoute(builder: ((context) => const AddMovie())));
+                   Navigator.push(context, MaterialPageRoute(builder: ((context) => AddMovie())));
                 },
                 child: _buildBox('Add Movie', Icons.movie)),
                 
               GestureDetector(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: ((context) => const Upload())));
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) =>  MovieReviewListPage())));
                 },
                 child: _buildBox('Movie Review', Icons.movie)),
               GestureDetector

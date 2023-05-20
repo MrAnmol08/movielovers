@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,85 +17,43 @@ class Youpage extends StatefulWidget {
 }
 
 class _YoupageState extends State<Youpage> {
-  // final user = FirebaseAuth.instance.currentUser!;
+  final user = FirebaseAuth.instance.currentUser!;
 
-  // String _uid = "";
-  // String _name = "";
+  String _uid = "";
+  String _name = "";
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   getdata();
-  // }
-
-  // void getdata() async {
-  //   _uid = user.uid;
-
-  //   final DocumentSnapshot userDoc =
-  //       await FirebaseFirestore.instance.collection('users').doc(_uid).get();
-  //   setState(() {
-  //     _name = userDoc.get('name');
-  //   });
-  // }
-
-  // A boolean to keep track of whether the refresh action is in progress
-  bool _isRefreshing = false;
-
-  Future<void> _handleRefresh() async {
-    setState(() {
-      _isRefreshing = true;
-    });
-
-    return await Future.delayed(Duration(seconds: 2));
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getdata();
   }
 
-  // Future<void> _deleteAccount() async {
-  //   try {
-  //     // User? user = FirebaseAuth.instance.currentUser!.currentUser;
-  //     User? user = _auth.currentUser;
-  //     await user?.delete();
-  //     Navigator.of(context).pop();
-  //   } catch (e) {
-  //     print(e.toString());
-  //   }
-  // }
+  void getdata() async {
+    _uid = user.uid;
 
-  // void _showDeleteAccountDialog() {
-  //   showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return AlertDialog(
-  //         title: Text('Are you sure you want to delete your account?'),
-  //         actions: <Widget>[
-  //           TextButton(
-  //             child: Text('Cancel'),
-  //             onPressed: () {
-  //               Navigator.of(context).pop();
-  //             },
-  //           ),
-  //           TextButton(
-  //             child: Text('Delete'),
-  //             onPressed: () {
-  //               _deleteAccount();
-  //             },
-  //           ),
-  //         ],
-  //       );
-  //     },
-  //   );
-  // }
+    final DocumentSnapshot userDoc =
+        await FirebaseFirestore.instance.collection('users').doc(_uid).get();
+    setState(() {
+      _name = userDoc.get('name');
+    });
+  }
 
-  // String? name = Userdetails6.name;
+  // A boolean to keep track of whether the refresh action is in progress
+  //bool _isRefreshing = false;
+
+  // Future<void> _handleRefresh() async {
+  //   setState(() {
+  //     _isRefreshing = true;
+  //   });
+
+  //   return await Future.delayed(Duration(seconds: 2));
+  // }
+  // String? name = Userdetails.name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: IconButton(
-        //   onPressed: () {},
-        //   icon: const Icon(Ionicons.arrow_back_sharp),
-        //   color: const Color.fromARGB(255, 54, 63, 96),
-        // ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         bottom: PreferredSize(
@@ -131,8 +90,8 @@ class _YoupageState extends State<Youpage> {
               ),
               SizedBox(height: 10),
               Text(
-                'Anmol',
                 //_name,
+                _name,
                 style: GoogleFonts.openSans(
                   fontWeight: FontWeight.bold,
                   fontSize: 15,
@@ -140,7 +99,7 @@ class _YoupageState extends State<Youpage> {
                 ),
               ),
               Text(
-                'Anmol@gmail.com',
+                user.email ?? '',
                 //user.email ?? '',
                 style: GoogleFonts.openSans(
                   fontWeight: FontWeight.bold,
@@ -150,7 +109,7 @@ class _YoupageState extends State<Youpage> {
               ),
               const SizedBox(height: 2),
               const Divider(color: Colors.white),
-              const SizedBox(height: 2),
+              const SizedBox(height: 2), 
               SizedBox(
                 width: 200,
                 child: ElevatedButton(

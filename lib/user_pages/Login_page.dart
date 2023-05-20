@@ -29,52 +29,56 @@ class _loginState extends State<login> {
 
   get error => null;
 
-  Future signIn() async {
-    try {
-      //loading circle
-      showDialog(
-        context: context,
-        builder: (context){
-          return Center(child: CircularProgressIndicator());
-        },
-        );
+Future<void> signIn() async {
+  try {
+    // Loading circle
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Center(child: CircularProgressIndicator());
+      },
+    );
 
-      //check if user is an admin
-      if (_emailController.text.trim() == 'admin@gmail.com' &&
-          _passwordController.text.trim() == 'admin123') {
-        //Navigate to the admin page
+      {
+      // Authenticate the user with Firebase
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
 
-        // ignore: use_build_context_synchronously
+      // Check if the authenticated user is the admin
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null && user.email == 'admin@gmail.com') {
+        // Navigate to the admin page
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
-            builder: ((context) => AdminHome()),
-          ),
+          MaterialPageRoute(builder: (context) => AdminHome()),
         );
       } else {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: _emailController.text.trim(),
-          password: _passwordController.text.trim(),
-        );
-
+        // Navigate to the normal user page
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => Navbar()),
         );
-        //Display an erro message to the user
-        utils().toastMessage('Successfully login');
-        // }
       }
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'User-not-found') {
-        utils().toastMessage('Invalid user');
-      } else if (e.code == 'wrong-password') {
-        utils().toastMessage('Something went wrong');
-      }
-    }
 
-    //Navigator.of(context).pop();
+      // Display a success message to the user
+      utils().toastMessage('Successfully logged in');
+    }
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'user-not-found') {
+      utils().toastMessage('Invalid user');
+    } else if (e.code == 'wrong-password') {
+      utils().toastMessage('Invalid password');
+    } else {
+      utils().toastMessage('Something went wrong');
+    }
   }
+}
+
+ 
+
+
 
   @override
   void dispose() {
