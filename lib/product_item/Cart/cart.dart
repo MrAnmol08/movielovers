@@ -71,19 +71,19 @@ class _CartState extends State<Cart> {
                           child: ListTile(
                             //title: Text(value.productItems[index][0]),
                             leading: Image.asset(
-                              value.cartItems[index][3],
+                              value.cartItems[index].imagePath,
                               alignment: Alignment.bottomLeft,
                               //height: 82,
                             ),
                             title: Text(
-                              value.cartItems[index][0],
+                              value.cartItems[index].itemName,
                               style: GoogleFonts.openSans(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 14,
                                 color: const Color.fromARGB(255, 54, 63, 96),
                               ),
                             ),
-                            subtitle: Text('Rs.' + value.cartItems[index][2]),
+                            subtitle: Text('Rs.' + value.cartItems[index].itemPrice),
                             trailing: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               mainAxisSize: MainAxisSize.min,
@@ -94,8 +94,8 @@ class _CartState extends State<Cart> {
                                     color: const Color.fromARGB(255, 27, 24, 63),
                                     onPressed: () {
                                     }
-                                    //=>  Provider.of<Cartmodel>(context, listen: false)
-                                    //         .increaseproduct(index),
+                                      // Provider.of<Cartmodel>(context, listen: false)
+                                      //       .increaseproduct(index),
                                     ),
                                     const Text('2'),
                                 IconButton(
@@ -125,6 +125,38 @@ class _CartState extends State<Cart> {
                   ),
                 ),
               ),
+
+              
+              Padding(
+                padding: const EdgeInsets.all(30),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 242, 243, 246),
+                    borderRadius: BorderRadius.circular(8),
+                    
+                  ),
+                  
+                  padding:  EdgeInsets.all(24),
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Text(
+                            "Delivery is free in trial period.",
+                            style: GoogleFonts.openSans(
+                              fontWeight: FontWeight.bold,
+                              // fontSize: 18,
+                              color:
+                                  const Color.fromARGB(255, 54, 63, 96),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
               Padding(
                 padding: const EdgeInsets.all(36),
                 child: Container(
@@ -157,6 +189,8 @@ class _CartState extends State<Cart> {
                           ),
                         ],
                       ),
+                      
+                      SizedBox(height: 15),
                       GestureDetector(
                         onTap: () {
                           Navigator.push(

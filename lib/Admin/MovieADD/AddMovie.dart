@@ -150,7 +150,18 @@ class _AddMovieState extends State<AddMovie> {
         .doc(currentUser.uid)
         .collection('Movie Review');
 
-    await postsRef.add({
+  //   await postsRef.doc({
+  //     'mediaUrl': mediaUrl,
+  //     'Movie Name': Movie_Name ?? '',
+  //     'Director': Movie_Director ?? '',
+  //     'Actors': Movie_Actor ?? '',
+  //     'Review': Movie_Review ?? '',
+  //     'Review By': Review_By ?? '',
+  //     'Genre': Genre ?? '',
+  //     'Published Date': Published_Date ?? ''
+  //   });
+  // }
+  await postsRef.doc().set({
       'mediaUrl': mediaUrl,
       'Movie Name': Movie_Name ?? '',
       'Director': Movie_Director ?? '',
@@ -277,9 +288,9 @@ class _AddMovieState extends State<AddMovie> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: GestureDetector(
-                      onTap: () {
-                      isUploading ? null : () => handleSubmit();
-                      },
+                      onTap:
+                      isUploading ? null : handleSubmit,
+                      
                       child: Container(
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
@@ -298,25 +309,6 @@ class _AddMovieState extends State<AddMovie> {
                   ),
 
                   const SizedBox(height: 5),
-                  
-      
-          
-      
-      
-          
-          // Container(
-          //   width: 400.0,
-          //   height: 50.0,
-          //   alignment: Alignment.center,
-          //   child: ElevatedButton(
-          //     child: const Text(
-          //       "Post",
-          //       style: TextStyle(color: Colors.black),
-          //     ),
-              
-          //     onPressed: isUploading ? null : () => handleSubmit(),
-          //   ),
-          // ),
         ],
       ),
     );

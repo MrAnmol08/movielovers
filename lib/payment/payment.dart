@@ -20,7 +20,8 @@ void payWithKhalti(BuildContext context,int FinalAmount) {
     );
   }
 
-  void onSuccess(BuildContext context){
+  void onSuccess(BuildContext context) async{
+    
     showDialog(context: context, builder: (context){
       return AlertDialog(title: const Text('Payment Successful'),
       actions: [
