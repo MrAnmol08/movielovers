@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ionicons/ionicons.dart';
+import 'package:movielovers/Admin/AddMovie/Edit_Review.dart';
 
 class MovieReviewListPage extends StatelessWidget {
   @override
@@ -49,6 +51,24 @@ class MovieReviewListPage extends StatelessWidget {
 }
 
 class MovieReviewListView extends StatelessWidget {
+  final bool showIcons;
+  MovieReviewListView({this.showIcons = true});
+
+  
+  void deletePost(String postId) {
+  FirebaseFirestore.instance
+      .collection('Review')
+      .doc(postId)
+      .delete()
+      .then((value) {
+    // Post deleted successfully
+    // You can show a snackbar or toast message to indicate deletion
+  }).catchError((error) {
+    // An error occurred while deleting the post
+    // You can show an error message to the user
+  });
+}
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -91,7 +111,7 @@ class MovieReviewListView extends StatelessWidget {
             DateTime? publishedDate =
                 reviewData?['publishedDate']?.toDate();
             // Additional detail
-            //String? additionalDetail = reviewData?['additionalDetail'];
+            String? additionalDetail = reviewData?['additionalDetail'];
 
             return Container(
               margin: EdgeInsets.only(bottom: 10.0),
@@ -128,11 +148,16 @@ class MovieReviewListView extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Review: ${review ?? ''}'),
+                          child: Text('Review: ${review ?? ''}',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 7,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Review By: ${reviewBy ?? ''}'),
+                          child: Text('Review By: ${reviewBy ?? ''}',
+                          maxLines: 6,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -140,10 +165,59 @@ class MovieReviewListView extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text('Published Date: ${publishedDate ?? ''}'),
+                          child: Text('Published Date: ${publishedDate ?? ''}',
+                          ),
+                          
                         ),
-                        // Display the additional detail
-                       // Text('Additional Detail: ${additionalDetail ?? ''}'),
+                        //Display the additional detail
+                       //Text('Additional Detail: ${additionalDetail ?? ''}'),
+                       Align(
+                        
+                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            if(showIcons)
+                            GestureDetector(
+                              onTap: (){
+                                showDialog(context: context, 
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Delete Review'),
+                                     content: Text('Are you sure you want to delete this review?'),
+                                    actions: <Widget>[
+                                      TextButton(child: Text('Cancel'),
+                                        onPressed: (){
+                                          Navigator.of(context).pop();
+                                          },
+                                       ), 
+                                       TextButton(onPressed: (){
+                                        deletePost(document.id);
+                                       },
+                                        child: Text('Delete'))
+
+                                    ],
+                                  );
+                                }
+                                );
+                                deletePost(document.id);
+                                
+                              },
+                               child: Icon(Ionicons.trash_bin)),
+                            if (showIcons) SizedBox(width: 20),
+                            if (showIcons)
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => EditMovieReviewScreen(postId: document.id),
+                              ),
+                            );
+                              },
+                              child: Icon(Ionicons.pencil)),
+                          ],
+                         ),
+                       )
                       ],
                     ),
                   ),

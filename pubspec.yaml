@@ -55,6 +55,8 @@ dependencies:
   uuid: ^3.0.7
   firebase_app_check: 
   flutter_email_sender: ^5.2.0
+  flutter_rating_bar: ^4.0.1
+  geocoding: ^2.1.0
   
 
 dev_dependencies:

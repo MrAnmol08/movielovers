@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:movielovers/Admin/AddMovie/Movie_Review.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -114,10 +118,14 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       //  SizedBox(height: 5),
-       Expanded(child: MovieReviewListView())
+       Expanded(child: MovieReviewListView(showIcons: false,)),
+       
+       
 
       ],
       ),
     );
   }
 }
+
+

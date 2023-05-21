@@ -107,7 +107,7 @@ class _AdminHomeState extends State<AdminHome> {
              children: [
               GestureDetector(
                 onTap: (){
-                   Navigator.push(context, MaterialPageRoute(builder: ((context) => AddMovie())));
+                   Navigator.push(context, MaterialPageRoute(builder: ((context) => AddMoviePage())));
                 },
                 child: _buildBox('Add Movie', Icons.movie)),
                 
@@ -118,7 +118,7 @@ class _AdminHomeState extends State<AdminHome> {
                 child: _buildBox('Movie Review', Icons.movie)),
               GestureDetector
               ( onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: ((context) =>  const AdminTicketPage())));
+                  Navigator.push(context, MaterialPageRoute(builder: ((context) =>  AdminTicketPage())));
                 },
                 child: _buildBox('Movie Tickets', Icons.airplane_ticket)),
               GestureDetector(

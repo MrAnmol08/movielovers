@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFieldTile extends StatelessWidget {
-   var NameController = TextEditingController();
-  var directorController = TextEditingController();
-  var actorController = TextEditingController();
-  var reviewController = TextEditingController();
-  var reviewbyController = TextEditingController();
-  var genreController = TextEditingController();
-  // int publishdateController = TextEditingController();
-
+  final TextEditingController controller;
+  final TextInputType keyboardType;
   final String hintText;
   final IconData icon;
 
    CustomTextFieldTile({super.key, 
     required this.hintText,
     required this.icon,
-    required this.NameController,
-    required this.directorController,
+    required this.controller,
+     required this.keyboardType,
   });
 
 
